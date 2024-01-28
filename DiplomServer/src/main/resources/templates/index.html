@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link th:href="@{/css/footer.css}" rel="stylesheet" />
+    <link th:href="@{/css/header.css}" rel="stylesheet" />
+    <title>BMW-Group</title>
+</head>
+
+<!--<header class="header">-->
+
+<!--    <div class="links">-->
+<!--        <a class="nav__link" href="#">Автомобили</a>-->
+<!--        <a class="nav__link" href="#">Покупка</a>-->
+<!--    </div>-->
+
+<!--    <div class="search">-->
+<!--        <img th:src="@{/images/lupa.png}" alt="" src=""/>-->
+
+<!--        <div class="location">-->
+<!--            <img th:src="@{/images/mest.png}" alt="" src="">-->
+<!--        </div>-->
+
+<!--    </div>-->
+
+<!--    <div class="logo">-->
+<!--        <img th:src="@{/images/bmw_logo.png}" alt="" src="">-->
+<!--    </div>-->
+
+<!--</header>-->
+
+<header th:utext="${htmlContentHeader}"></header>
+
+<style>
+    @font-face {
+        font-family: Roboto;
+        src: url("/fonts/SportsWorld.otf");
+    }
+    @font-face {
+        font-family: Price;
+        src: url("/fonts/textStyle.ttf");
+    }
+</style>
+
+<body>
+
+<div class="main">
+
+    <div class="paral">
+
+        <h1>THE M5</h1>
+
+        <div class="second-text">
+            <img th:src="@{/images/bmw_m_logo.png}" alt="" src="">
+            <h2>Автомобили bmw m5 серии</h2>
+
+        </div>
+
+        <div class="btn-group">
+            <button>КОНФИГУРАТОР</button>
+            <button>ПОДРОБНЕЕ</button>
+        </div>
+
+        <p class="price">120 000 $</p>
+        <p class="cost">Стоимость</p>
+
+    </div>
+
+    <div class="car">
+        <img th:src="@{/images/m5(b)/bmw5Series.png}" alt="" src="">
+    </div>
+
+</div>
+
+
+</body>
+
+<footer class="footer">
+
+    <div class="conteiner_footer">
+        <div class="contact">
+            <p>КОНТАКТЫ</p>
+            <nav>
+                <a class = "footer_links" href="#">Тест-драйв</a>
+                <a class = "footer_links" href="#">Обратная связь</a>
+            </nav>
+        </div>
+
+        <button class="logo_foter_button">
+
+        </button>
+
+    </div>
+
+</footer>
+</html>

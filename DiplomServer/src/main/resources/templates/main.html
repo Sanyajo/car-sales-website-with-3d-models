@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="rus">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>BMW Group</title>
+    <link rel="shortcut icon" href="/images/bmw_logo.png" type="image/png">
+</head>
+
+<style>
+    @font-face {
+        font-family: Roboto;
+        src: url("/fonts/SportsWorld.otf");
+    }
+    @font-face {
+        font-family: Price;
+        src: url("/fonts/textStyle.ttf");
+    }
+    @font-face{
+        font-family: Tonky;
+        src: url("/fonts/tonkyFont.ttf");
+    }
+
+    @font-face {
+        font-family: New;
+        src: url("/fonts/newFont.ttf");
+    }
+</style>
+
+<header th:utext="${htmlContentHeader}"></header>
+
+<body>
+
+    <div class="videoHeader">
+        <div class="videText">
+            <p1>THE</p1>
+            <p2>M5</p2>
+            <div class="videoLogo">
+                <img src="/images/main/bmw_m_logo.png">
+                <p3>BMW M5 COMPETITION. МОЩЬ НА ВСЕ 100%.</p3>
+            </div>
+            <form action="page/new.html" target="_blank">
+                <button><span>ПОДРОБНЕЕ</span></button>
+            </form>
+        </div>
+        
+        <video src="/images/main/headVideo1.mp4" type="video/mp4" autoplay muted loop></video>
+
+    </div>
+
+    <div class="findCar">
+        <div class="findCarInfo">
+            <p1>ИНСТРУМЕНТЫ ПОКУПАТЕЛЯ</p1>
+            <p2>НАЙДИ СВОЙ BMW</p2>
+        </div>
+
+        <div class="findCarButton">
+
+            <div class="findCarButtonLogo">
+                <img src="/images/main/byDriveLogo.png">
+                <p>Выбери новый автомобиль</p>
+                <form action="page/shopauto.ftlh" target="_blank">
+                    <button><span>Выбрать</span></button>
+                </form>
+            </div>
+
+            <div class="findCarButtonLogo">
+                <img src="/images/main/testDriveLogo.png">
+                <p class="findCarButtonLogoInfo">Записаться на тест-драйв</p>
+                <form action="/testdrive" target="">
+                    <button><span>Выбрать</span></button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="blockInfo">
+        <div class="blockInfoText">
+            <p1>#BMWVISION</p1>
+            <p2>THE NEUE NEW</p2>
+                <form action="/future" target="_blank">
+                    <button type="submit" ><span>ПОДРОБНЕЕ</span></button>
+                </form>
+        </div>
+
+        <img src="/images/main/featureBMW.png">
+    </div>
+
+    <div class="blockInfo2">
+        <img src="/images/main/bmw7Two.jpg">
+        <div class="blockInfo2TextAndButton">
+            <p>История в каждой детали: открой<br> новые горизонты с классической<br> красотой и современными<br> технологиями в новой BMW 7 Series!</p>
+            
+            <form action="/oldcar" target="_blank">
+                <button><span>ПОДРОБНЕЕ</span></button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+<footer th:utext="${htmlContentFooter}"></footer>
+
+</html>

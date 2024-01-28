@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Tonky;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+.carBlock{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    /*align-items: ;*/
+}
+
+.parent{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /*grid-template-rows: auto;*/
+}
+
+.info1{
+    width: 100%;
+    height: 100%;
+    margin: 20px;
+}
+
+img{
+    width: 223px;
+    height: 125px;
+    object-fit: cover;
+}
+
+button{
+    /*width: 100%;*/
+    /*height: 100%;*/
+}
+
+
+p span{
+    color: black;
+}

@@ -1,0 +1,79 @@
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /*background: linear-gradient(274deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.06206232492997199) 0%);*/
+    position: absolute;
+    top: 0; /* Align the header to the top of the viewport */
+    z-index: 2; /* Set a higher z-index to bring the header on top */
+}
+
+.loglink {
+    margin: 10px 0 10px 0;
+    /* position: absolute; Set position absolute for loglink */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* z-index: 2; Set a higher z-index to bring it on top */
+}
+
+.loglink a {
+    /* text-transform: uppercase; */
+    text-decoration: none;
+    font-size: 33px;
+    color: #fff;
+}
+
+.logo_heade_button {
+    width: 100px;
+    height: 100px;
+    border: none;
+    background: url("../images/main/bmwlogoWhite.png") center center/cover no-repeat;
+    cursor: pointer;
+}
+.logo_heade_button:hover {
+    color:#bebebe;
+    opacity: 0.8;
+}
+
+.logo_heade_button:active {
+    transform: scale(0.95);
+}
+
+.nav__link {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin: 0 70px;
+    color: #cccccc;
+    text-decoration: none;
+    transition: color .2s linear;
+    font-size: 30px;
+}
+
+.nav__link:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    display: none;
+    background-color: #767A80;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.nav__link:hover {
+    color: #767A80;
+}
+
+.nav__link:hover:after {
+    display: block;
+}

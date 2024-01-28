@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Tonky;
+    color: #cccccc;
+}
+
+.videoHeader{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.videoHeader video {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+
+}
+
+.videText{
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    position: absolute; 
+    top: 55%; 
+    left: 20%; 
+    transform: translate(-25%, -50%);
+}
+
+.videText form {
+    /* width: 300px;
+    height: 55px; */
+    display: flex;
+    margin: 35px 0 0 0;
+    
+}
+
+.videText button {
+    width: 300px;
+    height: 55px;
+    background: linear-gradient(274deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.10127801120448177) 0%) center center/cover no-repeat;
+    border: 1px solid white;
+    cursor: pointer;
+    font-weight: bolder;
+}
+.videText button:hover {
+    border: 3px solid white;
+}
+
+.videText span {
+    font-family: Tonky;
+    font-weight: bolder;
+    color: white;
+    font-size: 28px;
+}
+
+.videText p1{
+    color: #fff;
+    font-family: Tonky;
+    font-size: 36px;
+}
+
+.videText p2{
+    color: #fff;
+    font-family: Tonky;
+    font-size: 200px;
+    font-weight: bold;
+
+}
+
+.videoLogo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.videoLogo img{
+    width: 20%;
+    height: 20%;
+    margin: 0 45px 0 0;
+}
+
+.videoLogo p3{
+    width: 100%;
+    color: #fff;
+    font-family: Tonky;
+    font-size: 40px;
+}
+
+.findCar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px 0 90px 0;
+}
+
+.findCarInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 0 70px 0;
+}
+
+.findCarInfo p1{
+    color: #666;
+    font-family: Tonky;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+}
+
+.findCarInfo p2{
+    color: #262626;
+    font-family: New;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.findCarButton{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.findCarButtonLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} 
+
+.findCarButtonLogo form{
+  width: 100%;
+} 
+
+.findCarButtonLogo button{
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.findCarButtonLogo span{
+    font-family: Roboto;
+    font-weight: bolder;
+    color: black;
+    font-size: 18px;
+}
+
+.findCarButtonLogo button:hover {
+    border: 3px solid black;
+}
+
+
+.findCarButtonLogo img{
+    width: 100px;
+    height: 100px;
+    margin: 0 0 15px 0;
+}
+.findCarButtonLogo p{
+    width: 100%;
+    color: black;
+    font-family: Tonky;
+    font-size: 24px;
+    margin: 0 0 10px 0;
+}
+
+.findCarButtonLogoInfo{
+    width: 100%;
+}
+
+
+.blockInfo{
+   width: 100%;
+   height: 100%;
+   position: relative;
+   margin: 0 0 60px 0;
+}
+
+.blockInfoText{
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    position: absolute; 
+    top: 70%; 
+    left: 15%; 
+    transform: translate(-25%, -40%);
+
+}
+
+.blockInfoText p1{
+    color: white;
+    font-family: Tonky;
+    font-size: 36px;
+}
+.blockInfoText p2{
+    color: white;
+    font-family: Tonky;
+    font-size: 100px;
+}
+
+.blockInfoText form{
+    display: flex;
+    margin: 10px 0 0 0;
+}
+
+.blockInfoText button{
+        height: 55px;
+        width: 270px;
+        background: linear-gradient(274deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.10127801120448177) 0%) center center/cover no-repeat;
+        border: 2px solid white;
+        cursor: pointer;
+        font-weight: bolder;
+}
+
+.blockInfoText span{
+    font-family: Tonky;
+    font-weight: bolder;
+    color: white;
+    font-size: 20px;
+}
+
+.blockInfoText button:hover{
+    border: 3px solid white;
+}
+
+.blockInfo img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+
+.blockInfo2{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0 60px 0;
+}
+
+.blockInfo2TextAndButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.blockInfo2TextAndButton form{
+    display: flex;
+    margin: 10px 0 0 0;
+}
+
+.blockInfo2TextAndButton button{
+    height: 55px;
+    width: 100%;
+    background: white;
+    /* background: linear-gradient(274deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.10127801120448177) 0%) center center/cover no-repeat;
+    border: 2px solid black; */
+    border: 2px solid black;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.blockInfo2TextAndButton button:hover{
+    border: 3px solid black;
+}
+
+.blockInfo2 img{
+    height: 500px;
+    position: relative;
+    object-fit: contain;
+    margin: 0 50px 0 0;
+}
+
+.blockInfo2TextAndButton p{
+    width: 100%;
+    height: 200px;
+    color: black;
+    font-family: Tonky;
+    font-size: 36px;
+}
+
+.blockInfo2TextAndButton span{
+    font-family: Tonky;
+    font-weight: bolder;
+    color: black;
+    font-size: 20px;
+}

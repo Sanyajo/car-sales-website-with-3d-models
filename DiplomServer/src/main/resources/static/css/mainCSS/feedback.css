@@ -1,0 +1,100 @@
+html, body {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Tonky;
+    color: #cccccc;
+}
+
+.cont {
+    /*width: 100%;*/
+    height: 500px;
+    margin: 60px 0 60px 60px;
+}
+
+.cont1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+}
+
+.cont1Text{
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cont1 iframe{
+    margin: 0 50px 0 0;
+}
+
+.cont1Text p1{
+    color: black;
+    font-family: Tonky;
+    font-size: 36px;
+    margin:0 0 10px 0;
+}
+
+.cont1Text p2{
+    color: black;
+    font-family: Tonky;
+    font-size: 18px;
+    margin:0 0 10px 0;
+}
+
+.cont1Text a{
+    color: black;
+    font-family: Tonky;
+    font-size: 18px;
+    margin:0 0 10px 0;
+    text-decoration: none;
+}
+
+
+.contInfo{
+    width: 100%;
+    height: 200px;
+}
+
+.contInfo1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+}
+
+.contInfo11{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    margin:0 50px 0 0;
+}
+
+.contInfo11 p1{
+    color: black;
+    font-family: Tonky;
+    font-size: 36px;
+    margin:0 0 10px 0;
+}
+
+.contInfo11 p2{
+    color: black;
+    font-family: Tonky;
+    font-size: 18px;
+    font-weight: bold;
+}
+.contInfo11 p3{
+    color: black;
+    font-family: Tonky;
+    font-size: 16px;
+
+}

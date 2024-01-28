@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>BMW Test Drive</title>
+    <link rel="stylesheet" href="/css/mainCss/testdrive.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="shortcut icon" href="/images/bmw_logo.png" type="image/png">
+
+</head>
+
+<style>
+  @font-face {
+    font-family: Roboto;
+    src: url("/fonts/SportsWorld.otf");
+  }
+  @font-face {
+    font-family: Price;
+    src: url("/fonts/textStyle.ttf");
+  }
+  @font-face{
+    font-family: Tonky;
+    src: url("/fonts/tonkyFont.ttf");
+  }
+
+  @font-face {
+    font-family: New;
+    src: url("/fonts/newFont.ttf");
+  }
+</style>
+
+<header th:utext="${htmlContentHeader}"></header>
+
+<body>
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form" action="/gettestdriveinfo" method="post">
+                <input type="text" name="fio" placeholder="ФИО"/>
+                <input type="text" name="phoneNumber" placeholder="Номер телефона"/>
+                <input type="text" name="email" placeholder="E-mail (не обязательно)"/>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+
+
+    </div>
+</body>
+
+<footer th:utext="${htmlContentFooter}"></footer>
+
+</html>

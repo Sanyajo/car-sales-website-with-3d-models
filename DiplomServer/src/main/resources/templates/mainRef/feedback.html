@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="/css/mainCss/feedback.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="shortcut icon" href="/images/bmw_logo.png" type="image/png">
+</head>
+
+<style>
+  @font-face {
+    font-family: Roboto;
+    src: url("/fonts/SportsWorld.otf");
+  }
+  @font-face {
+    font-family: Price;
+    src: url("/fonts/textStyle.ttf");
+  }
+  @font-face{
+    font-family: Tonky;
+    src: url("/fonts/tonkyFont.ttf");
+  }
+
+  @font-face {
+    font-family: New;
+    src: url("/fonts/newFont.ttf");
+  }
+</style>
+
+<header th:utext="${htmlContentHeader}"></header>
+
+<body>
+
+    <div class="cont">
+        <div class="cont1">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75192.09272703477!2d27.5015607846633!3d53.91836678064271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc601016c3ed9%3A0x24774571e3293f88!2z0JDQstGC0L7RhtC10L3RgtGAIEJNVyDQuCBNSU5J!5e0!3m2!1sru!2sby!4v1705322642238!5m2!1sru!2sby" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="cont1Text">
+                <p1>Адрес автоцентра</p1>
+                <p2>ООО «АВТОИДЕЯ», УНП 190829939
+                    МКАД, Минский район, д. Цна, ул. Юбилейная, д. 4</p2>
+                <p1>Отправьте ваш отзыв</p1>
+                <p2>На почту   <a href="mailto:mnenie@autoidea.by">mnenie@autoidea.by</a></p2>
+            </div>
+        </div>
+    </div>
+
+    <div class="contInfo">
+        <div class="contInfo1">
+            <div class="contInfo11">
+                <p1>Отдел продаж <br>новых автомобилей</p1>
+                <p2>Время работы</p2>
+                <p3>Пн-Вс 8:00–20:00</p3>
+            </div>
+            <div class="contInfo11">
+                <p1>Отдел продаж <br>авто с пробегом</p1>
+                <p2>Время работы</p2>
+                <p3>Пн-Вс 10:00–19:00</p3>
+            </div>
+            <div class="contInfo11">
+                <p1>Отдел <br>BMW Motorrad</p1>
+                <p2>Время работы</p2>
+                <p3>Пн-Пт 9:00–18:00,
+                    Сб-Вс – выходной</p3>
+            </div>
+            <div class="contInfo11">
+                <p1>Отдел сервисного <br>обслуживания</p1>
+                <p2>Время работы</p2>
+                <p3>Пн-Вс 8:00–20:00</p3>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer th:utext="${htmlContentFooter}"></footer>
+</html>

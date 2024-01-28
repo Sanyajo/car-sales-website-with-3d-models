@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/mainCSS/oldcar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="shortcut icon" href="/images/bmw_logo.png" type="image/png">
+    <title>BMW Old Car</title>
+</head>
+
+<style>
+  @font-face {
+    font-family: Roboto;
+    src: url("/fonts/SportsWorld.otf");
+  }
+  @font-face {
+    font-family: Price;
+    src: url("/fonts/textStyle.ttf");
+  }
+  @font-face{
+    font-family: Tonky;
+    src: url("/fonts/tonkyFont.ttf");
+  }
+
+  @font-face {
+    font-family: New;
+    src: url("/fonts/newFont.ttf");
+  }
+</style>
+
+<header th:utext="${htmlContentHeader}"></header>
+
+<body>
+
+    <div class="videoHeader">
+        <div class="videText">
+            <p1>THE</p1>
+            <p2>E38 V12</p2>
+            <div class="videoLogo">
+                <img src="/images/main/bmw_m_logo.png">
+                <p3>BMW E38 740Li СТРАХ УЛИЦ</p3>
+            </div>
+        </div>
+
+        <img src="/images/main/oldCar/img1OldCar.jpg">
+
+    </div>
+
+    <div class="backInYan">
+
+        <div class="blockInfo2">
+            <video src="/images/main/oldCar/e38Video.mp4" type="video/mp4" autoplay muted loop></video>
+            <div class="blockInfo2Text">
+                <p1>Где страсть встречает асфальт, рождается величие</p1>
+                <p2>Будто дыхание ночного города, вот она – BMW E38 V12, неисправимый бунтарь среди автомобилей. Ее мускулистый облик, словно скульптура мощи и элегантности, улавливает взгляды на улицах, создавая атмосферу волнующего присутствия.</p2>
+            </div>
+        </div>
+
+        <div class="blockInfo3">
+            <div class="blockInfo3Text">
+                <p1>Где инновации встречают роскошь, рождается будущее</p1>
+                <p2>В мире, где смесь адреналина и роскоши создает свой закон, вступайте в игру с BMW 7 Series 2023. Ее современный дизайн – это как будущее, вдохновленное городским пейзажем, где каждая кривая кузова словно высечена в ритме городских ночей.</p2>
+            </div>
+            <video src="/images/main/oldCar/7serVideo.mp4" type="video/mp4" autoplay muted loop></video>
+
+        </div>
+    </div>
+
+
+</body>
+
+<footer th:utext="${htmlContentFooter}"></footer>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/mainCSS/future.css">
+    <link rel="shortcut icon" href="/images/bmw_logo.png" type="image/png">
+    <title>BMW Future</title>
+</head>
+
+<style>
+    @font-face {
+        font-family: Roboto;
+        src: url("/fonts/SportsWorld.otf");
+    }
+    @font-face {
+        font-family: Price;
+        src: url("/fonts/textStyle.ttf");
+    }
+    @font-face{
+        font-family: Tonky;
+        src: url("/fonts/tonkyFont.ttf");
+    }
+
+    @font-face {
+        font-family: New;
+        src: url("/fonts/newFont.ttf");
+    }
+</style>
+
+<header th:utext="${htmlContentHeader}"></header>
+
+<body>
+    <div class="blockInfo1">
+
+        <div class="blockInfo1Text">
+            <p1>НОВИНКА</p1>
+            <p2>НОВОЕ ВИДИНИЕ BMW</p2>
+            <p3>НОВАЯ ЭРА МОБИЛЬНОСТИ</p3>
+        </div>
+
+        <img src="/images/main/future/img1.png">
+
+    </div>
+
+    <div class="blockInfo2">
+        <img src="/images/main/future/img2.jpg">
+        <div class="blockInfo2Text">
+            <p1>РАДОСТЬ НАВЕКИ. СЕГОДНЯ И В БУДУЩЕМ</p1>
+            <p2>Настоящее удовольствие от вождения начинается сегодня. И думает о завтрашнем дне. BMW New Class снижает углеродный след своих автомобилей на протяжении всего жизненного цикла. Благодаря ресурсосберегающему производству, более широкому использованию вторичного сырья и высокоэффективному полностью электрическому приводу.</p2>
+        </div>
+    </div>
+
+
+    <div class="video">
+        <video src="/images/main/future/videoMainFuture.mp4" controls></video>
+    </div>
+
+    <div class="blockInfo3">
+        <div class="blockInfo3Text">
+            <p1>ЭЛЕКТРИЧЕСКИЙ. ЦИФРОВОЙ. ФУТУРИСТИЧНЫЙ.</p1>
+            <p2>BMW Vision New Class более чем опережает свое время. Это прыжок в новую эру. Он сочетает в себе самые последние инновации, чтобы создать незабываемые впечатления</p2>
+        </div>
+        <img src="/images/main/future/img3.jpg">
+    </div>
+
+
+</body>
+
+<footer th:utext="${htmlContentFooter}"></footer>
+
+</html>
