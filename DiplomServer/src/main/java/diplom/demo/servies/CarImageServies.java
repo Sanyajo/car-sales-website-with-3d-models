@@ -13,8 +13,8 @@ public class CarImageServies {
 
     private final CarImageRepository carImageRepository;
 
-    public CarImageUrl funct(String model, String series){
-        return carImageRepository.findCarUrlTitle(model, series);
+    public CarImageUrl funct(String model, String seriestype){
+        return carImageRepository.findCarUrlTitle(model, seriestype);
     }
 
 }

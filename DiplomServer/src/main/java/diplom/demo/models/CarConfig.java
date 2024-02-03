@@ -36,4 +36,7 @@ public class CarConfig {
     @Column(name="prefix")
     private String prefix;
 
+    @Column(name="seriestype")
+    private String seriestype;
+
 }

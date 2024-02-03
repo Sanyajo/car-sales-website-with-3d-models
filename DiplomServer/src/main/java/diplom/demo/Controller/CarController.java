@@ -1,6 +1,6 @@
 package diplom.demo.Controller;
 
-import diplom.demo.models.CarConfig;
+import diplom.demo.models.Car;
 import diplom.demo.models.CarImageUrl;
 import diplom.demo.models.CarInfo;
 import diplom.demo.servies.*;
@@ -95,8 +95,8 @@ public class CarController {
 
 
     @GetMapping("/allauto")
-    public String shopauto(@RequestParam(name= "model", required = false) String modelCar, Model model){
-        model.addAttribute("listAuto",carServies.listCar(modelCar));
+    public String shopauto(Model model){
+        model.addAttribute("listAuto",carServies.listCar());
         fetchAndInjectHeaderHTML(model);
         fetchAndInjectFooterHTML(model);
         return "shopauto";
@@ -110,31 +110,49 @@ public class CarController {
 //    }
 
 
-    @PostMapping("/shopauto/{model}/{series}")
-    public String functt(@PathVariable String model, @PathVariable String series, Model modelAtr){
-        CarInfo carInfo = carInfoServies.listCarSeries(model, series);
-        CarImageUrl carImage = carImageServies.funct(model, series);
+    @PostMapping("/shopauto/{seriestype}/{series}/{model}")
+    public String functt(@PathVariable String model,@PathVariable String series, @PathVariable String seriestype, Model modelAtr){
+        CarInfo carInfo = carInfoServies.listCarSeries(model, seriestype);
+        CarImageUrl carImage = carImageServies.funct(model, seriestype);
 //        CarConfig carConfig = carConfigServies.carConfigF(model, series,"body");
 
         modelAtr.addAttribute("carImage", carImage);
         modelAtr.addAttribute("carInfo", carInfo);
 
-        modelAtr.addAttribute("carSliderListBody", carSliderServies.listSliderImage(model, series,"carbody"));
-        modelAtr.addAttribute("carSliderListSalon", carSliderServies.listSliderImage(model, series,"salon"));
+        modelAtr.addAttribute("carSliderListBody", carSliderServies.listSliderImage(model, seriestype,"carbody"));
+        modelAtr.addAttribute("carSliderListSalon", carSliderServies.listSliderImage(model, seriestype,"salon"));
 
 
 //        modelAtr.addAttribute("carConfig", carConfig);
-        modelAtr.addAttribute("carConfigList",carConfigServies.listCarConfiog(model,series,"body"));
+        modelAtr.addAttribute("carConfigList",carConfigServies.listCarConfiog(model,seriestype,"body"));
+
+        String motorType = carInfoServies.getMotorType(model, seriestype);
+        modelAtr.addAttribute("motorType", motorType);
 
         fetchAndInjectHeaderHTML(modelAtr);
         fetchAndInjectFooterHTML(modelAtr);
 
-        if(series.equals("series")){
-            return "main";
+        if(seriestype.equals("stock")){
+            return "car/stockseries";
         }
 
         return "car/mseries";
     }
+
+
+    @PostMapping("/price")
+    public void pdfdownload(@PathVariable String model, @PathVariable String series, Model modelAtr){
+        String pdfUrl = carInfoServies.getCarPDFUrl(model, series);
+
+        modelAtr.addAttribute("pdfurl", pdfUrl);
+//        return "pdf";
+    }
+
+//    @GetMapping("/price")
+//    public String pdfdownload(){
+//        return "pdf";
+//    }
+//
 
 
 

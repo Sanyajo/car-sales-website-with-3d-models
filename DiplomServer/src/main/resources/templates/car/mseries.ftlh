@@ -5,14 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/mainCSS/car.css">
+  <link rel="stylesheet" href="/css/mainCSS/mseriescar.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <script src="/images/carslider/bmw5m/script.js" defer></script>
 <#--  <script src="/images/carbody/bmw5m/app.js"></script>-->
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
-  <title>BMW  ${carInfo.getSeries()}${carInfo.getModel()} series</title>
+  <title>BMW  ${carInfo.getSeriestype()}${carInfo.getSeries()} ${carInfo.getModel()}</title>
 
 </head>
 
@@ -59,11 +59,11 @@
     <div class="videoHeader">
       <div class="videText">
         <p1>THE</p1>
-        <p2>${carImage.getSeries()}${carImage.getModel()}</p2>
+        <p2>${carImage.getSeriestype()}${carImage.getSeries()}</p2>
         <div class="videoLogo">
 
           <img src="/images/main/bmw_m_logo.png">
-          <p3>BMW ${carImage.getSeries()}${carImage.getModel()}</p3>
+          <p3>BMW ${carImage.getSeriestype()}${carImage.getSeries()} ${carImage.getModel()}</p3>
 
         </div>
 
@@ -75,7 +75,7 @@
           </div>
 
           <div class="harTextBlock">
-            <p1>${carInfo.getMotortype()}</p1>
+            <p1>${motorType}</p1>
             <p2>Двигатель</p2>
           </div>
 
@@ -88,7 +88,7 @@
     </div>
 
     <div class="carHistory">
-      <p2>История BMW  ${carInfo.getSeries()}${carInfo.getModel()} series</p2>
+      <p2>История BMW  ${carImage.getSeriestype()}${carImage.getSeries()}${carImage.getModel()}</p2>
       <p>${carInfo.getCarhistory()}</p>
     </div>
 
@@ -114,12 +114,12 @@
       </div>
 
     <div class="video">
-      <p>ОБЗОР BMW  ${carInfo.getSeries()}${carInfo.getModel()} series</p>
+      <p>ОБЗОР BMW  ${carImage.getSeriestype()}${carImage.getSeries()}${carImage.getModel()}</p>
       <video src=${carInfo.getVideoreview()} controls></video>
     </div>
 
     <div class="carHistory">
-      <p2>ДИЗАЙН И ДИНАМИКА ДВИЖЕНИЯ BMW  ${carInfo.getSeries()}${carInfo.getModel()} series xDRIVE</p2>
+      <p2>ДИЗАЙН И ДИНАМИКА ДВИЖЕНИЯ BMW  ${carImage.getSeriestype()}${carImage.getSeries()}${carImage.getModel()}</p2>
       <p>${carInfo.getCardesign()}</p>
     </div>
 
@@ -142,13 +142,12 @@
       </div>
     </div>
 
-
     <div class="priceBlock">
       <img src="/images/priceImage.jpg" alt="">
       <div class="priceTitle">
         <p1>ПРАЙС-ЛИСТ</p1>
         <p2>Вы можете ознакомиться с доступными опциями и спецификациями автомобиля, скачав прайс-лист</p2>
-        <a href=${carInfo.getPdfurl()} target="_blank">Скачать прайс-лист</a>
+        <a href="/price" target="_blank">Скачать прайс-лист</a>
       </div>
     </div>
 

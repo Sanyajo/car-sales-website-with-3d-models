@@ -14,7 +14,7 @@ import java.util.List;
 public class CarSliderServies {
     private final CarSliderRepository carSliderRepository;
 
-    public List<CarSlider> listSliderImage(String model, String series, String type){
-        return carSliderRepository.findByModelAndSeriesAndType(model, series, type);
+    public List<CarSlider> listSliderImage(String model, String seriestype, String type){
+        return carSliderRepository.findByModelAndSeriestypeAndType(model, seriestype, type);
     }
 }

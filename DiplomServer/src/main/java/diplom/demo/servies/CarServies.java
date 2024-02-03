@@ -18,11 +18,11 @@ public class CarServies {
 
     private final CarRepository carRepository;
 
-    public List<Car> listCar(String model){
-        if(model != null){
-            carRepository.findByModel(model);
+    public List<Car> listCar(){
+        if(carRepository.count() > 0){
+            return carRepository.findAll();
         }
-        return carRepository.findAll();
+        return null;
     }
 
 

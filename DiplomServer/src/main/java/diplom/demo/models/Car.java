@@ -28,4 +28,10 @@ public class Car {
 
     @Column(name="urlimage")
     private String urlimage;
+
+    @Column(name="motortype")
+    private String motortype;
+
+    @Column(name="seriestype")
+    private String seriestype;
 }

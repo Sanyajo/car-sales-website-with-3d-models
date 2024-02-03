@@ -10,23 +10,24 @@
     <title>Shop car</title>
 </head>
 
-<body>
-    <header class="header">
-        <div class="loglink">
-            <div class="links">
-                <a class="nav__link" href="#">Автомобили</a>
-                <a class="nav__link" href="/allauto">Покупка</a>
-                <a class="nav__link" href="/bmwinfo">Больше о BMW</a>
-            </div>
-
-            <form action="/main" target="">
-                <button class="logo_heade_button">
-                </button>
-            </form>
-
-
+<header class="header">
+    <div class="loglink">
+        <div class="links">
+            <a class="nav__link" href="#">Автомобили</a>
+            <a class="nav__link" href="/allauto">Покупка</a>
+            <a class="nav__link" href="/bmwinfo">Больше о BMW</a>
         </div>
-    </header>
+
+        <form action="/main" target="">
+            <button class="logo_heade_button">
+            </button>
+        </form>
+
+
+    </div>
+</header>
+
+<body>
 
     <div class="carBlock">
         <div class="parent">
@@ -34,19 +35,19 @@
 
             <div class="info1">
 
-                    <form action="/shopauto/${car.model}/${car.series}" method="post">
+                    <form action="/shopauto/${car.getSeriestype()}/${car.getSeries()}/${car.getModel()}" method="post">
                         <button type="submit">
                             <img src="${car.urlimage}">
                         </button>
                     </form>
 
-                <#if car.series == "series">
-                    <p>BMW  ${car.model} series</p>
-                <#else>
-                    <p>BMW  ${car.series}${car.model} series</p>
-                </#if>
-                <p>Бензин  <span class="cmp-modelcard__fuel-type--dot">•</span> Дизель</p>
+                <#if car.getSeriestype() == "M">
+                    <p>BMW  ${car.getSeriestype()}${car.getSeries()} ${car.getModel()}</p>
 
+                <#else>
+                    <p>BMW  ${car.getSeries()} ${car.getModel()}</p>
+                </#if>
+                <p>${car.getMotortype()}</p>
             </div>
             </#list>
 

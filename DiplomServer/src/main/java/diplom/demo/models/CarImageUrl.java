@@ -26,4 +26,7 @@ public class CarImageUrl {
     @Column(name="series")
     private String series;
 
+    @Column(name="seriestype")
+    private String seriestype;
+
 }

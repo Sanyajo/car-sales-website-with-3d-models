@@ -32,4 +32,7 @@ public class CarSlider {
 
     @Column(name="type")
     private String type;
+
+    @Column(name="seriestype")
+    private String seriestype;
 }

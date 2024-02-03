@@ -24,8 +24,8 @@ public class CarInfo {
     @Column(name="fuelflow")
     private String fuelflow;
 
-    @Column(name="motortype")
-    private String motortype;
+//    @Column(name="motortype")
+//    private String motortype;
 
     @Column(name="carhistory")
     private String carhistory;
@@ -41,5 +41,8 @@ public class CarInfo {
 
     @Column(name="videoreview")
     private String videoreview;
+
+    @Column(name="seriestype")
+    private String seriestype;
 
 }
