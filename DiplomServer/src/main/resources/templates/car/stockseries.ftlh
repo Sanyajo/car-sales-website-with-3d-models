@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/mainCSS/seriescar.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <script src="/images/carslider/bmw5m/script.js" defer></script>
+    <script src="/scripts/script.js" defer></script>
     <#--  <script src="/images/carbody/bmw5m/app.js"></script>-->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
@@ -36,6 +36,7 @@
     }
 </style>
 
+<#include "../header.html">
 
 <body>
 
@@ -91,6 +92,51 @@
         </div>
     </div>
 
+    <div class="carHistory">
+        <p2>ИСТОРИЯ BMW ${carImage.getModel()}</p2>
+        <p>${carInfo.getCarhistory()}</p>
+    </div>
+
+    <div class="video">
+        <p>ОБЗОР BMW ${carImage.getModel()}</p>
+        <video src=${carInfo.getVideoreview()} controls></video>
+    </div>
+
+    <div class="carHistory">
+        <p2>ДИЗАЙН И ДИНАМИКА ДВИЖЕНИЯ BMW  ${carImage.getModel()}</p2>
+        <p>${carInfo.getCardesign()}</p>
+    </div>
+
+    <div class="sliderMain2">
+        <div class="findCarInfo2">
+            <p2>ВПЕЧАТЛЯЮЩИЕ ОСОБЕННОСТИ ИНТЕРЬЕРА</p2>
+        </div>
+
+        <div class="wrapper2">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <ul class="carousel2">
+                <#list carSliderListSalon as carsliderlist>
+                    <li class="card2">
+                        <div class="img"><img src="${carsliderlist.getImageSlider()}" alt="img" draggable="false"></div>
+                        <h2>${carsliderlist.getImageinfo()}</h2>
+                    </li>
+                </#list>
+            </ul>
+            <i id="right" class="fa-solid fa-angle-right"></i>
+        </div>
+    </div>
+
+    <div class="priceBlock">
+        <img src="/images/priceImage.jpg" alt="">
+        <div class="priceTitle">
+            <p1>ПРАЙС-ЛИСТ</p1>
+            <p2>Вы можете ознакомиться с доступными опциями и спецификациями автомобиля, скачав прайс-лист</p2>
+            <a href="/price" target="_blank">Скачать прайс-лист</a>
+        </div>
+    </div>
+
 </body>
+
+<#include "../footer.html">
 
 </html>

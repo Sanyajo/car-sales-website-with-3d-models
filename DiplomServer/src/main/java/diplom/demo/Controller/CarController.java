@@ -1,6 +1,5 @@
 package diplom.demo.Controller;
 
-import diplom.demo.models.Car;
 import diplom.demo.models.CarImageUrl;
 import diplom.demo.models.CarInfo;
 import diplom.demo.servies.*;
@@ -160,7 +159,7 @@ public class CarController {
     private void fetchAndInjectHeaderHTML(Model model) {
         try {
             // Загрузка ресурса из класспаса (src/main/resources)
-            Resource resource = new ClassPathResource("header.html");
+            Resource resource = new ClassPathResource("templates/header.html");
 
             // Чтение содержимого файла в строку
             String htmlContent = StreamUtils.copyToString(resource.getInputStream(), Charset.defaultCharset());
@@ -175,7 +174,7 @@ public class CarController {
     }
     private void fetchAndInjectFooterHTML(Model model) {
         try {
-            Resource resource = new ClassPathResource("footer.html");
+            Resource resource = new ClassPathResource("templates/footer.html");
             String htmlContent = StreamUtils.copyToString(resource.getInputStream(), Charset.defaultCharset());
             model.addAttribute("htmlContentFooter", htmlContent);
         } catch (IOException e) {

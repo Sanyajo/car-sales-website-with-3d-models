@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/css/mainCSS/mseriescar.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-  <script src="/images/carslider/bmw5m/script.js" defer></script>
+  <script src="/scripts/script.js" defer></script>
 <#--  <script src="/images/carbody/bmw5m/app.js"></script>-->
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
@@ -36,22 +36,7 @@
   }
 </style>
 
-<header class="header">
-  <div class="loglink">
-    <div class="links">
-      <a class="nav__link" href="/allauto">Автомобили</a>
-      <a class="nav__link" href="#">Покупка</a>
-      <a class="nav__link" href="/bmwinfo">Больше о BMW</a>
-    </div>
-
-    <form action="/returnmain" target="">
-      <button class="logo_heade_button">
-      </button>
-    </form>
-
-
-  </div>
-</header>
+<#include "../header.html">
 
 
 <body>
@@ -153,23 +138,6 @@
 
 </body>
 
-<footer class="footer">
-
-  <div class="conteiner_footer">
-    <div class="contact">
-      <p>КОНТАКТЫ</p>
-      <nav>
-        <a class = "footer_links" href="#">Тест-драйв</a>
-        <a class = "footer_links" href="#">Обратная связь</a>
-      </nav>
-    </div>
-
-    <button class="logo_foter_button">
-
-    </button>
-
-  </div>
-
-</footer>
+<#include "../footer.html">
 
 </html>
