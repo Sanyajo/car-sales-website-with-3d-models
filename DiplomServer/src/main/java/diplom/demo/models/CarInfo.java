@@ -45,4 +45,7 @@ public class CarInfo {
     @Column(name="seriestype")
     private String seriestype;
 
+    @Column(name="titlevideo")
+    private String titleVideo;
+
 }

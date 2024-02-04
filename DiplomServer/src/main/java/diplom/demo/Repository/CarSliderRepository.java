@@ -1,10 +1,7 @@
 package diplom.demo.Repository;
 
-import diplom.demo.models.Car;
-import diplom.demo.models.CarImageUrl;
 import diplom.demo.models.CarSlider;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

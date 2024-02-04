@@ -43,11 +43,11 @@
     <div class="videoHeader">
     <div class="videText">
         <p1>THE</p1>
-        <p2>${carImage.getModel()}</p2>
+        <p2>${carInfo.getModel()}</p2>
         <div class="videoLogo">
 
 <#--            <img src="/images/main/bmw_m_logo.png">-->
-            <p3>BMW ${carImage.getModel()}</p3>
+            <p3>BMW ${carInfo.getModel()}</p3>
 
         </div>
 
@@ -67,7 +67,7 @@
 
     </div>
 
-    <video src=${carImage.getTitleImg()} type="video/mp4" autoplay muted loop></video>
+    <video src=${carInfo.getTitleVideo()} type="video/mp4" autoplay muted loop></video>
 
 </div>
 
@@ -93,17 +93,17 @@
     </div>
 
     <div class="carHistory">
-        <p2>ИСТОРИЯ BMW ${carImage.getModel()}</p2>
+        <p2>ИСТОРИЯ BMW ${carInfo.getModel()}</p2>
         <p>${carInfo.getCarhistory()}</p>
     </div>
 
     <div class="video">
-        <p>ОБЗОР BMW ${carImage.getModel()}</p>
+        <p>ОБЗОР BMW ${carInfo.getModel()}</p>
         <video src=${carInfo.getVideoreview()} controls></video>
     </div>
 
     <div class="carHistory">
-        <p2>ДИЗАЙН И ДИНАМИКА ДВИЖЕНИЯ BMW  ${carImage.getModel()}</p2>
+        <p2>ДИЗАЙН И ДИНАМИКА ДВИЖЕНИЯ BMW  ${carInfo.getModel()}</p2>
         <p>${carInfo.getCardesign()}</p>
     </div>
 

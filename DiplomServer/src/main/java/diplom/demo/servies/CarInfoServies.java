@@ -59,5 +59,9 @@ public class CarInfoServies {
     }
 
 
+//    public CarInfo funct(String model, String seriestype){
+//        return carInfoRepository.findCarUrlTitle(model, seriestype);
+//    }
+
 
 }

@@ -1,6 +1,5 @@
 package diplom.demo.Controller;
 
-import diplom.demo.models.CarImageUrl;
 import diplom.demo.models.CarInfo;
 import diplom.demo.servies.*;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +22,6 @@ public class CarController {
 
     private final CarServies carServies;
     private final CarInfoServies carInfoServies;
-    private final CarImageServies carImageServies;
     private final CarSliderServies carSliderServies;
     private final CarConfigServies carConfigServies;
 
@@ -112,10 +110,7 @@ public class CarController {
     @PostMapping("/shopauto/{seriestype}/{series}/{model}")
     public String functt(@PathVariable String model,@PathVariable String series, @PathVariable String seriestype, Model modelAtr){
         CarInfo carInfo = carInfoServies.listCarSeries(model, seriestype);
-        CarImageUrl carImage = carImageServies.funct(model, seriestype);
-//        CarConfig carConfig = carConfigServies.carConfigF(model, series,"body");
 
-        modelAtr.addAttribute("carImage", carImage);
         modelAtr.addAttribute("carInfo", carInfo);
 
         modelAtr.addAttribute("carSliderListBody", carSliderServies.listSliderImage(model, seriestype,"carbody"));
