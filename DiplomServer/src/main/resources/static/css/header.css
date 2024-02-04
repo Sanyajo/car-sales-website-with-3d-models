@@ -34,7 +34,7 @@
     width: 100px;
     height: 100px;
     border: none;
-    background: url("../images/main/bmwlogoWhite.png") center center/cover no-repeat;
+    background: url("../images/bmw_logo.png") center center/cover no-repeat;
     cursor: pointer;
 }
 .logo_heade_button:hover {

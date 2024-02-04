@@ -76,6 +76,8 @@ p span{
     /*font-weight: bold;*/
 }
 
+/*______Линия под хеадером________*/
+
 
 /*____Кнопки выбора_____*/
 .selectButton {
@@ -101,6 +103,6 @@ p span{
 
 .selectButton button.underline,
 .selectButton button:focus {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #0166B1;
 }
 

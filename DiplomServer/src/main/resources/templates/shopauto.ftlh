@@ -31,7 +31,7 @@
     }
 
     .header{
-        background: black;
+        /*background: black;*/
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -40,15 +40,35 @@
         /*background: linear-gradient(274deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.06206232492997199) 0%);*/
     }
 
+    .logo_heade_button{
+        /*background: url("/images/bmw_logo_gray.png") center center/cover no-repeat;*/
+    }
+
+    .loglink a {
+        /* text-transform: uppercase; */
+        text-decoration: none;
+        font-size: 33px;
+        color:black;
+    }
+
     .footer{
         position: absolute;
         bottom: 0;
         left: 0;
+
+    }
+
+    hr {
+        border: none; /* Убираем границу */
+        background-color: #767A80; /* Цвет линии */
+        color: #767A80; /* Цвет линии для IE6-7 */
+        height: 2px; /* Толщина линии */
     }
 
 </style>
 
 <#include "header.html">
+<hr>
 
 <body>
 
