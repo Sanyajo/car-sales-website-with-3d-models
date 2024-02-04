@@ -25,6 +25,8 @@ public class CarController {
     private final CarSliderServies carSliderServies;
     private final CarConfigServies carConfigServies;
 
+    private final TestDriveHumanServies testDriveHumanServies;
+
     @GetMapping("/main")
     public String main(Model model) {
         fetchAndInjectHeaderHTML(model);
@@ -67,20 +69,35 @@ public class CarController {
         return "mainRef/bmwinfo/bmwinfo";
     }
 
-    @PostMapping("gettestdriveinfo")
+    @PostMapping("/gettestdriveinfo")
     public String gettestdriveinfo(
             @RequestParam("fio") String fio,
             @RequestParam("phoneNumber") String phoneNumber,
             @RequestParam(value = "email", required = false) String email,
             Model model) {
-        if(fio.isEmpty()  || phoneNumber.isEmpty() ){
+
+        fetchAndInjectHeaderHTML(model);
+        fetchAndInjectFooterHTML(model);
+
+                if(fio.isEmpty()  || phoneNumber.isEmpty() ){
 
         }else{
             System.out.println("Received data - FIO: " + fio + ", Phone Number: " + phoneNumber + ", Email: " + email);
+
+            testDriveHumanServies.addHuman(fio, phoneNumber, email);
+
         }
+
+        return "redirect:/gettestdriveinfo";
+    }
+
+    @GetMapping("/gettestdriveinfo")
+    public String gettestdriveinfo(Model model) {
+
         fetchAndInjectHeaderHTML(model);
         fetchAndInjectFooterHTML(model);
-        return "mainRef/testdrive";
+
+        return "/mainRef/testdrive";
     }
 
     @GetMapping("/feedback")
