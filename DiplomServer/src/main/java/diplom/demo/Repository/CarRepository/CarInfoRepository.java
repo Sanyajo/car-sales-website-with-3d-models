@@ -1,9 +1,8 @@
-package diplom.demo.Repository;
+package diplom.demo.Repository.CarRepository;
 
-import diplom.demo.models.CarInfo;
+import diplom.demo.models.carModels.CarInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 public interface CarInfoRepository  extends JpaRepository<CarInfo, Long> {
     @Query("SELECT c FROM CarInfo c WHERE c.model = :model AND c.seriestype = :seriestype")

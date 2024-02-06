@@ -1,4 +1,4 @@
-package diplom.demo.models;
+package diplom.demo.models.carModels;
 
 import jakarta.persistence.*;
 import jdk.jfr.DataAmount;

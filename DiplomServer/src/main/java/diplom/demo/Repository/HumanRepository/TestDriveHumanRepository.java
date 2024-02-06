@@ -1,9 +1,7 @@
-package diplom.demo.Repository;
+package diplom.demo.Repository.HumanRepository;
 
-import diplom.demo.models.CarInfo;
-import diplom.demo.models.TestDriveHuman;
+import diplom.demo.models.HumanModels.TestDriveHuman;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

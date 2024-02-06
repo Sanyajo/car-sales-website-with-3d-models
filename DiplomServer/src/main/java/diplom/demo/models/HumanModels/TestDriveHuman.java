@@ -1,4 +1,4 @@
-package diplom.demo.models;
+package diplom.demo.models.HumanModels;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

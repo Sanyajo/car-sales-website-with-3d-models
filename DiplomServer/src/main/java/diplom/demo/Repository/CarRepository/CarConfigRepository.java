@@ -1,6 +1,6 @@
-package diplom.demo.Repository;
+package diplom.demo.Repository.CarRepository;
 
-import diplom.demo.models.CarConfig;
+import diplom.demo.models.carModels.CarConfig;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

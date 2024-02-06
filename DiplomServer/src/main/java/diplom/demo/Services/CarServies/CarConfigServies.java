@@ -1,7 +1,7 @@
-package diplom.demo.servies;
+package diplom.demo.Services.CarServies;
 
-import diplom.demo.Repository.CarConfigRepository;
-import diplom.demo.models.CarConfig;
+import diplom.demo.Repository.CarRepository.CarConfigRepository;
+import diplom.demo.models.carModels.CarConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

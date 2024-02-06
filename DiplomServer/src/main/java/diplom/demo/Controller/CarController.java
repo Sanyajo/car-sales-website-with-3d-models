@@ -1,7 +1,11 @@
 package diplom.demo.Controller;
 
-import diplom.demo.models.CarInfo;
-import diplom.demo.servies.*;
+import diplom.demo.models.carModels.CarInfo;
+import diplom.demo.Services.CarServies.CarConfigServies;
+import diplom.demo.Services.CarServies.CarInfoServies;
+import diplom.demo.Services.CarServies.CarServies;
+import diplom.demo.Services.CarServies.CarSliderServies;
+import diplom.demo.Services.HumanServies.TestDriveHumanServies;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ClassPathResource;
@@ -82,7 +86,7 @@ public class CarController {
                 if(fio.isEmpty()  || phoneNumber.isEmpty() ){
 
         }else{
-            System.out.println("Received data - FIO: " + fio + ", Phone Number: " + phoneNumber + ", Email: " + email);
+//            System.out.println("Received data - FIO: " + fio + ", Phone Number: " + phoneNumber + ", Email: " + email);
 
             testDriveHumanServies.addHuman(fio, phoneNumber, email);
 
