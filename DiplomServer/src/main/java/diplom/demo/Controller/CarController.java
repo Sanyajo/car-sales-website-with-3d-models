@@ -61,8 +61,9 @@ public class CarController {
 
     @GetMapping("/testdrive")
     public String testdrive(Model model){
-        fetchAndInjectHeaderHTML(model);
-        fetchAndInjectFooterHTML(model);
+//        fetchAndInjectHeaderHTML(model);
+//        fetchAndInjectFooterHTML(model);
+        model.addAttribute("listCar", carServies.listCar());
         return "mainRef/testdrive";
     }
 
@@ -77,18 +78,19 @@ public class CarController {
     public String gettestdriveinfo(
             @RequestParam("fio") String fio,
             @RequestParam("phoneNumber") String phoneNumber,
+            @RequestParam("carSelection") String car,
             @RequestParam(value = "email", required = false) String email,
             Model model) {
 
-        fetchAndInjectHeaderHTML(model);
-        fetchAndInjectFooterHTML(model);
+//        fetchAndInjectHeaderHTML(model);
+//        fetchAndInjectFooterHTML(model);
 
-                if(fio.isEmpty()  || phoneNumber.isEmpty() ){
+                if(fio.isEmpty()  || phoneNumber.isEmpty()  || car.isEmpty()){
 
         }else{
 //            System.out.println("Received data - FIO: " + fio + ", Phone Number: " + phoneNumber + ", Email: " + email);
-
-            testDriveHumanServies.addHuman(fio, phoneNumber, email);
+//                    carServies.setMark(car);
+            testDriveHumanServies.addHuman(fio, phoneNumber, car, email);
 
         }
 
@@ -98,10 +100,11 @@ public class CarController {
     @GetMapping("/gettestdriveinfo")
     public String gettestdriveinfo(Model model) {
 
-        fetchAndInjectHeaderHTML(model);
-        fetchAndInjectFooterHTML(model);
+//        fetchAndInjectHeaderHTML(model);
+//        fetchAndInjectFooterHTML(model);
+        model.addAttribute("listCar", carServies.listCar());
 
-        return "/mainRef/testdrive";
+        return "mainRef/testdrive";
     }
 
     @GetMapping("/feedback")

@@ -34,4 +34,7 @@ public class Car {
 
     @Column(name="seriestype")
     private String seriestype;
+
+    @Column(name="mark")
+    private String markCar;
 }
