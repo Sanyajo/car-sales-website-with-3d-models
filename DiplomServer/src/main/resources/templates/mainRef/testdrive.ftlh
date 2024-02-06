@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/mainCss/testdrive.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/header.css">
+    <script src="/scripts/testdrive.js" defer></script>
 <!--    <script src="/scripts/shopauto.js" defer></script>-->
     <link rel="shortcut icon" href="/images/bmw_logo.png" type="image/png">
 
@@ -44,7 +45,7 @@
 
 </style>
 
-<header th:utext="${htmlContentHeader}"></header>
+<#include "../header.html">
 
 <body>
     <div class="login-page">
@@ -52,15 +53,28 @@
             <form class="login-form" action="/gettestdriveinfo" method="post">
                 <input type="text" id="fioInput" name="fio" placeholder="ФИО"/>
                 <input type="text" id="phoneNumberInput" name="phoneNumber" placeholder="Номер телефона"/>
+
+
+                    <select name="carSelection" id="carSelection">
+                        <option value="">Выберите машину</option>
+                        <#list listCar as car>
+                            <#if car.getSeriestype() == "stock">
+                                <option value="${car.getSeries()} ${car.getModel()}" id="car">${car.getSeries()} ${car.getModel()}</option>
+                            <#else>
+                                <option value="${car.getSeriestype() }${car.getSeries()} ${car.getModel()}" id="car">${car.getSeriestype() }${car.getSeries()} ${car.getModel()}</option>
+                            </#if>
+                        </#list>
+                    </select>
+
+
                 <input type="text" id="emailInput" name="email" placeholder="E-mail (не обязательно)"/>
                 <button type="submit" id="submitButton" disabled>Отправить</button>
             </form>
         </div>
     </div>
-    <script src="/scripts/testdrive.js" defer></script>
 
 </body>
 
-<footer th:utext="${htmlContentFooter}"></footer>
+<#include "../footer.html">
 
 </html>

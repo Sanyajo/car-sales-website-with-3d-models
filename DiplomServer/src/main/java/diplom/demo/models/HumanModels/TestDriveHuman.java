@@ -29,4 +29,8 @@ public class TestDriveHuman {
     @Column(name="mark")
     private String mark;
 
+    @Column(name="car")
+    private String testDriveCar;
+
+
 }
