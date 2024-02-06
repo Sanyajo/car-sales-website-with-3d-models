@@ -22,5 +22,9 @@ public class CarServies {
         return null;
     }
 
+    public void setMark(String carModel){
 
+       carRepository.findByModel(carModel).setMarkCar("yes");
+
+    }
 }
