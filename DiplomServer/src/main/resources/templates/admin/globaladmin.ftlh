@@ -44,7 +44,7 @@
                         <td>${human.getTestDriveCar()}</td>
                         <td class="mark">${human.getMark()}</td>
                         <td><button onclick="refMarkYes(${human.getId()}, '${human.getTestDriveCar()}')">Бронь</button><button onclick="refMarkNo(${human.getId()}, '${human.getTestDriveCar()}')">Отказ</button></td>
-                        <#--                    <td><button onclick="refMarkNo(${human.getId()})">Нет</button></td>-->
+                        <td><button onclick="deleteHuman(${human.getId()}, '${human.getTestDriveCar()}')">Удалить ползователя</button></td>
                     </tr>
                 </#list>
             </table>
@@ -120,6 +120,16 @@
     function refMarkNo(id, testdrivecar) {
         $.ajax({
             url: "/cars/" + id + "/no",
+            type: "PUT",
+            data: { testdrivecar: testdrivecar },
+            success: function(result) {
+                location.reload();
+            }
+        });
+    }
+    function deleteHuman(id, testdrivecar){
+        $.ajax({
+            url: "/cars/" + id + "/delete",
             type: "PUT",
             data: { testdrivecar: testdrivecar },
             success: function(result) {

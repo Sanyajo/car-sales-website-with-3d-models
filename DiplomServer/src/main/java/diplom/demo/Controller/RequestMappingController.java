@@ -119,5 +119,23 @@ public class RequestMappingController {
 //        });
     }
 
+    @PutMapping("/{id}/delete")
+    public void deleteHuman(@PathVariable Long id, @RequestParam("testdrivecar") String testdrivecar){
+        String[] array = testdrivecar.split(" ");
+        String model = array[1];
+
+        Optional<Car> optionalCar = Optional.ofNullable(carRepository.findByModel(model));
+
+        Optional<TestDriveHuman> driveHumanOptional = testDriveHumanRepository.findById(id);
+        driveHumanOptional.ifPresent(human ->{
+           testDriveHumanRepository.delete(human);
+        });
+
+        optionalCar.ifPresent(car ->{
+            car.setMarkCar("no");
+            carRepository.save(car);
+        });
+    }
+
 
 }
