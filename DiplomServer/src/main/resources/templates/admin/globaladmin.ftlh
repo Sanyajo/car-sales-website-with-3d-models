@@ -14,10 +14,19 @@
         <div class="bodyCongButton">
             <button id="testdriveUsers">Тестдрайв заявки</button>
             <button id="carReserve">Занятость машин</button>
-            <button id="Тестдрайв заявки">Тестдрайв заявки</button>
+            <button id="carInsert">Добавить машину</button>
             <button id="Тестдрайв заявки">Тестдрайв заявки</button>
         </div>
         <div class="testDriveUsersTable">
+
+            <div class="infotestDriveUsersTable">
+                <table>
+                    <td class="greenInfo">ЦВЕТ</td><td>Забронировал</td>
+                    <td class="redInfo">ЦВЕТ</td><td>Не обработан</td>
+                    <td class="yellowInfo">ЦВЕТ</td><td>Машина попала в сервис</td>
+                </table>
+            </div>
+
             <table>
                 <tr>
                     <th>ФИО</th>
@@ -34,13 +43,22 @@
                         <td>${human.getEmail()}</td>
                         <td>${human.getTestDriveCar()}</td>
                         <td class="mark">${human.getMark()}</td>
-                        <td><button onclick="refMarkYes(${human.getId()}, '${human.getTestDriveCar()}')">Да</button><button onclick="refMarkNo(${human.getId()}, '${human.getTestDriveCar()}')">Нет</button></td>
+                        <td><button onclick="refMarkYes(${human.getId()}, '${human.getTestDriveCar()}')">Бронь</button><button onclick="refMarkNo(${human.getId()}, '${human.getTestDriveCar()}')">Отказ</button></td>
                         <#--                    <td><button onclick="refMarkNo(${human.getId()})">Нет</button></td>-->
                     </tr>
                 </#list>
             </table>
         </div>
+
         <div class="carTestDriveReserveTable">
+            <div class="infotestDriveUsersTable">
+                <table>
+                    <td class="greenInfo">ЦВЕТ</td><td>Забронирована</td>
+                    <td class="redInfo">ЦВЕТ</td><td>Свободна</td>
+                    <td class="orangeInfo">ЦВЕТ</td><td>Сервис</td>
+                </table>
+            </div>
+
             <table>
                 <tr>
                     <th>Серия</th>
@@ -57,12 +75,28 @@
                         </#if>
                         <td>${car.getModel()}</td>
                         <td class="mark">${car.getMarkCar()}</td>
-                        <td><button onclick="refMarkCarYes(${car.getId()},'${car.getModel()}')">Да</button><button onclick="refMarkCarNo(${car.getId()},'${car.getModel()}')">Нет</button></td>
+                        <td><button onclick="refMarkCarYes(${car.getId()},'${car.getModel()}', '${car.getSeries()}')">В ремонте</button><button onclick="refMarkCarNo(${car.getId()},'${car.getModel()}')">Готова</button></td>
                         <#--                    <td><button onclick="refMarkNo(${human.getId()})">Нет</button></td>-->
                     </tr>
                 </#list>
             </table>
         </div>
+
+<#--        <div class="carInputForm">-->
+<#--            <form class="login-form" action="/addCarInputForm" enctype="multipart/form-data" method="post">-->
+<#--                &lt;#&ndash;            <input type="text" id="model" name="model" placeholder="Модель"/>&ndash;&gt;-->
+<#--                &lt;#&ndash;            <input type="text" id="series" name="series" placeholder="Серия"/>&ndash;&gt;-->
+<#--                &lt;#&ndash;            <input type="text" id="motortype" name="motortype" placeholder="Тип мотора"/>&ndash;&gt;-->
+<#--                &lt;#&ndash;            <input type="text" id="seriestype" name="seriestype" placeholder="Серия Тип"/>&ndash;&gt;-->
+<#--                <input type="file" id="photo" name="photo" multiple accept="image/*,image/jpeg"/>-->
+
+
+<#--                <button type="submit" id="submitButton" >Добавить</button>-->
+<#--            </form>-->
+<#--        </div>-->
+
+
+
     </div>
 
 
@@ -75,9 +109,9 @@
     <#--    Тест драйв скрипты-->
     function refMarkYes(id, testdrivecar) {
         $.ajax({
-            url: "/humans/" + id + "/yes",
+            url: "/cars/" + id + "/yes",
             type: "PUT",
-            data: { testdrivecar: testdrivecar },
+            data: { testdrivecar: testdrivecar},
             success: function(result) {
                 location.reload();
             }
@@ -85,7 +119,7 @@
     }
     function refMarkNo(id, testdrivecar) {
         $.ajax({
-            url: "/humans/" + id + "/no",
+            url: "/cars/" + id + "/no",
             type: "PUT",
             data: { testdrivecar: testdrivecar },
             success: function(result) {
@@ -95,20 +129,19 @@
     }
 
     // _______________Машины скрипты_____________
-    function refMarkCarYes(id, carmodel) {
+    function refMarkCarYes(id, carmodel, carseries) {
         $.ajax({
-            url: "/cars/" + id + "/yes",
+            url: "/cars/" + id + "/serviceYes",
             type: "PUT",
-            data: { carModel: carmodel },
+            data: { carModel: carmodel, carseries: carseries   },
             success: function(result) {
                 location.reload();
             }
         });
     }
-
     function refMarkCarNo(id, carmodel) {
         $.ajax({
-            url: "/cars/" + id + "/no",
+            url: "/cars/" + id + "/serviceNo",
             type: "PUT",
             data: { carModel: carmodel },
             success: function(result) {
@@ -116,7 +149,6 @@
             }
         });
     }
-
 
     document.addEventListener("DOMContentLoaded", function() {
         var marks = document.querySelectorAll(".mark");
@@ -126,8 +158,15 @@
             } else if (mark.innerText === "no") {
                 mark.classList.add("mark-no");
             }
+            else if (mark.innerText === "service") {
+                mark.classList.add("mark-service");
+            }else if(mark.innerText === "carinservice"){
+                mark.classList.add("mark-carinservice");
+            }
         });
     });
+
+//     ____________________________
 
 
 //     __________________________
@@ -138,6 +177,7 @@
         const carTestDriveReserveTableButton = document.getElementById("carReserve");
         const carTestDriveReserveTable = document.querySelector(".carTestDriveReserveTable");
 
+        tableMain.style.display="none";
         carTestDriveReserveTable.style.display="none";
 
 

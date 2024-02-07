@@ -30,6 +30,7 @@ body {
 /*__________Конейнер выбора__________*/
 
 .bodyCongButton {
+    width: 400px;
     /*margin: 0px 30px 0px 0px;*/
     display: flex;
     /*align-items: center;*/
@@ -63,7 +64,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*flex-direction: column;*/
+    flex-direction: column;
+}
+.infotestDriveUsersTable{
+    margin:0px 0px 20px 0px;
 }
 
 table {
@@ -82,14 +86,26 @@ td{
     padding: 5px;
 }
 
-.mark-yes {
+.mark-yes , .greenInfo {
     background-color: #aaffaa;
-    color:#aaffaa /* Зеленый цвет */
+    color:#aaffaa;
 }
 
-.mark-no {
+
+.mark-no, .redInfo {
     background-color: #ffaaaa;
-    color: #ffaaaa/* Красный цвет */
+    color: #ffaaaa;
+}
+
+
+.mark-service, .orangeInfo {
+    background-color: orange;
+    color: orange;
+}
+
+.mark-carinservice, .yellowInfo{
+    background-color: yellow;
+    color: yellow;
 }
 
 /*_____________________________*/
