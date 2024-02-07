@@ -4,16 +4,18 @@ import diplom.demo.Repository.CarRepository.CarRepository;
 import diplom.demo.Services.CarServies.CarServies;
 import diplom.demo.Services.HumanServies.TestDriveHumanServies;
 import diplom.demo.Services.HumanServies.UsersServies;
-import diplom.demo.models.HumanModels.TestDriveHuman;
 import diplom.demo.models.HumanModels.Users;
-import diplom.demo.models.carModels.Car;
 import lombok.RequiredArgsConstructor;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Optional;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 @RequiredArgsConstructor
@@ -48,13 +50,26 @@ public class AdminController {
     }
 
 
-//    @GetMapping("/globaladmin")
-//    public String globalAdmin(Model modelAtr) {
-//        // Если данные для входа правильные, отображаем защищенную страницу
-//        modelAtr.addAttribute("listHuman", testDriveHumanServies.allHuman());
-//
-//        return "admin/globaladmin";
-//    }
+    @PostMapping("/addCarInputForm")
+    public String addCarInputForm( @RequestParam("model") String model,
+                                    @RequestParam("series") String series,
+                                    @RequestParam("motortype") String motortype,
+                                    @RequestParam("seriestype") String seriestype,
+                                    @RequestParam MultipartFile photo) {
+        if (photo.isEmpty()) {
+//            return "Файл не был передан";
+        }
+        carServies.addCar(model, series, motortype, seriestype, photo);
+        return "redirect:/globaladmin";
+    }
+
+
+    @GetMapping("/globaladmin")
+    public String globalAdmin(Model modelAtr) {
+        modelAtr.addAttribute("listCar", carServies.listCar());
+        modelAtr.addAttribute("listHuman", testDriveHumanServies.allHuman());
+        return "admin/globaladmin";
+    }
 
 
 }

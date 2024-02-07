@@ -4,6 +4,7 @@ import diplom.demo.models.HumanModels.TestDriveHuman;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface TestDriveHumanRepository  extends JpaRepository<TestDriveHuman, Long> {
 
@@ -11,4 +12,6 @@ public interface TestDriveHumanRepository  extends JpaRepository<TestDriveHuman,
 //    TestDriveHuman add(String fio, String phoneNumber, String email);
 
     List<TestDriveHuman> findAll();
+
+    Optional<TestDriveHuman> findByTestDriveCar(String car);
 }

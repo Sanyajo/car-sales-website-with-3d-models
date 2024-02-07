@@ -82,18 +82,21 @@
             </table>
         </div>
 
-<#--        <div class="carInputForm">-->
-<#--            <form class="login-form" action="/addCarInputForm" enctype="multipart/form-data" method="post">-->
-<#--                &lt;#&ndash;            <input type="text" id="model" name="model" placeholder="Модель"/>&ndash;&gt;-->
-<#--                &lt;#&ndash;            <input type="text" id="series" name="series" placeholder="Серия"/>&ndash;&gt;-->
-<#--                &lt;#&ndash;            <input type="text" id="motortype" name="motortype" placeholder="Тип мотора"/>&ndash;&gt;-->
-<#--                &lt;#&ndash;            <input type="text" id="seriestype" name="seriestype" placeholder="Серия Тип"/>&ndash;&gt;-->
-<#--                <input type="file" id="photo" name="photo" multiple accept="image/*,image/jpeg"/>-->
+        <div class="carInputForm">
+            <div class="carInputFormB">
+                <form class="login-form" action="/addCarInputForm" enctype="multipart/form-data" method="post">
+                    <input type="text" id="model" name="model" placeholder="Модель"/>
+                    <input type="text" id="series" name="series" placeholder="Серия"/>
+                    <input type="text" id="motortype" name="motortype" placeholder="Тип мотора"/>
+                    <input type="text" id="seriestype" name="seriestype" placeholder="Серия Тип"/>
+                    <input type="file" id="photo" name="photo" multiple accept="image/*,image/jpeg"/>
 
 
-<#--                <button type="submit" id="submitButton" >Добавить</button>-->
-<#--            </form>-->
-<#--        </div>-->
+                    <button type="submit" id="submitButton" >Добавить</button>
+                </form>
+            </div>
+
+        </div>
 
 
 
@@ -159,7 +162,6 @@
             }
         });
     }
-
     document.addEventListener("DOMContentLoaded", function() {
         var marks = document.querySelectorAll(".mark");
         marks.forEach(function(mark) {
@@ -187,8 +189,12 @@
         const carTestDriveReserveTableButton = document.getElementById("carReserve");
         const carTestDriveReserveTable = document.querySelector(".carTestDriveReserveTable");
 
+        const carInsertButton = document.getElementById("carInsert");
+        const carInputFormTable = document.querySelector(".carInputForm");
+
         tableMain.style.display="none";
         carTestDriveReserveTable.style.display="none";
+        carInputFormTable.style.display="none";
 
 
         let currentButton = null;
@@ -197,12 +203,21 @@
             toggleUnderline(testdriveUsersButton);
             tableMain.style.display = "flex";
             carTestDriveReserveTable.style.display="none";
+            carInputFormTable.style.display="none";
         });
 
         carTestDriveReserveTableButton.addEventListener("click", function () {
             toggleUnderline(carTestDriveReserveTableButton);
             tableMain.style.display = "none";
+            carInputFormTable.style.display="none";
             carTestDriveReserveTable.style.display="flex";
+        });
+
+        carInsertButton.addEventListener("click", function (){
+            toggleUnderline(carInsertButton);
+            tableMain.style.display = "none";
+            carTestDriveReserveTable.style.display="none";
+            carInputFormTable.style.display="flex";
         });
 
 
