@@ -1,25 +1,16 @@
 package diplom.demo.Controller;
 
-import diplom.demo.Repository.CarRepository.CarRepository;
 import diplom.demo.Services.CarServies.CarServies;
 import diplom.demo.Services.CarServies.CarSliderServies;
 import diplom.demo.Services.HumanServies.TestDriveHumanServies;
 import diplom.demo.Services.HumanServies.UsersServies;
 import diplom.demo.models.HumanModels.Users;
-import diplom.demo.models.carModels.CarSlider;
 import lombok.RequiredArgsConstructor;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -31,7 +22,6 @@ public class AdminController {
     private final CarServies carServies;
     private final CarSliderServies carSliderServies;
 
-    private final CarRepository carRepository;
 
     @GetMapping("/admin")
     public String admin(Model model) {
@@ -41,8 +31,7 @@ public class AdminController {
 
     @PostMapping("/admin")
     public String admin(@RequestParam("login") String login,
-                        @RequestParam("password") String password,
-                        Model modelAtr) {
+                        @RequestParam("password") String password) {
 
         Users users = usersServies.findUserForLogin(login);
 
@@ -60,9 +49,7 @@ public class AdminController {
                                     @RequestParam("motortype") String motortype,
                                     @RequestParam("seriestype") String seriestype,
                                     @RequestParam MultipartFile photo) {
-        if (photo.isEmpty() || seriestype.isEmpty()) {
-//            return "Файл не был передан";
-        }else{
+        if (!photo.isEmpty() && !seriestype.isEmpty()) {
             carServies.addCar(model, series, motortype, seriestype, photo);
         }
         return "redirect:/globaladmin";
@@ -78,9 +65,7 @@ public class AdminController {
                                    @RequestParam("imageinfo") String imageinfo,
                                    @RequestParam("seriestype") String seriestype
                                   ) {
-        if (image.isEmpty() || seriestype.isEmpty() || type.isEmpty()) {
-//            return "Файл не был передан";
-        }else {
+        if (!image.isEmpty() && !seriestype.isEmpty() && !type.isEmpty()) {
             carSliderServies.addCarSlider(model, series, image, type, folderName,  imageinfo, seriestype);
         }
         return "redirect:/globaladmin";
