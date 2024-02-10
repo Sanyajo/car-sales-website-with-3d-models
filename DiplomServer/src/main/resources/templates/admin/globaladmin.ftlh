@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/adminCSS/globaladmin.css">
     <link rel="shortcut icon" href="/images/bmw_logo.png" type="image/png">
+    <script src="/scripts/globalAdmin.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Admin</title>
 </head>
 
@@ -20,6 +22,8 @@
             <button id="carDelete">Удалить машину</button>
             <hr>
             <button id="allSliderCar">Просм машины стр инфо</button>
+            <button id="sliderInput">Добавить инфо слайд</button>
+            <button id="sliderDelete">Удалить инфо слайд</button>
         </div>
 
         <div class="bmwServiceLogo">
@@ -164,6 +168,8 @@
 
                         <#list listSlider as carSlider>
                         <tr>
+
+                            <td>${carSlider.getId()}</td>
                             <td>${carSlider.getModel()}</td>
                             <td>${carSlider.getSeries()}</td>
                             <td><a href="${carSlider.getImageSlider()}" target="_blank">${carSlider.getImageSlider()}</a></td>
@@ -178,199 +184,52 @@
             </div>
         </div>
 
+        <div class="carSliderTableInputForm">
+            <div class="carSliderTableInputFormB">
+                <div class="dirTableForm">
+                    <h>Директории</h>
+                    <table>
+                        <tr>
+                            <#list listDirct as dir>
+                                <td>${dir}</td>
+                            </#list>
+                        </tr>
+                    </table>
+                </div>
+                <form class="login-form" action="/addcarsliderform" enctype="multipart/form-data" method="post">
+                    <input type="text" id="model" name="model" placeholder="Модель"/>
+                    <input type="text" id="series" name="series" placeholder="Серия"/>
+                    <input type="file" id="image" name="image" multiple accept="image/*,image/jpeg"/>
+                    <input type="text" id="foldername" name="foldername" placeholder="Название папки"/>
+                    <input type="text" id="imageinfo" name="imageinfo" placeholder="Информация о картинке"/>
 
+                    <select name="type" id="type">
+                        <option value="">Выберите тип</option>
+                        <option value="salon">Салон</option>
+                        <option value="carbody">Интерьер</option>
+                    </select>
+
+                    <select name="seriestype" id="seriestype">
+                        <option value="">Выберите серию</option>
+                        <option value="M">М</option>
+                        <option value="stock">stock</option>
+                    </select>
+
+                    <button type="submit" id="submitButton" >Добавить</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="carSliderDeleteForm">
+            <form class="login-form" action="/carsliderdelete" method="post">
+                <input type="text" id="carid" name="carid" placeholder="Введите id записи"/>
+                <button type="submit" id="submitButton" >Удалить</button>
+            </form>
+        </div>
 
     </div>
 
 
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-
-    <#--    Тест драйв скрипты-->
-    function refMarkYes(id, testdrivecar) {
-        $.ajax({
-            url: "/cars/" + id + "/yes",
-            type: "PUT",
-            data: { testdrivecar: testdrivecar},
-            success: function(result) {
-                location.reload();
-            }
-        });
-    }
-    function refMarkNo(id, testdrivecar) {
-        $.ajax({
-            url: "/cars/" + id + "/no",
-            type: "PUT",
-            data: { testdrivecar: testdrivecar },
-            success: function(result) {
-                location.reload();
-            }
-        });
-    }
-    function deleteHuman(id, testdrivecar){
-        $.ajax({
-            url: "/cars/" + id + "/delete",
-            type: "PUT",
-            data: { testdrivecar: testdrivecar },
-            success: function(result) {
-                location.reload();
-            }
-        });
-    }
-
-    // _______________Машины скрипты_____________
-    function refMarkCarYes(id, carmodel, carseries) {
-        $.ajax({
-            url: "/cars/" + id + "/serviceYes",
-            type: "PUT",
-            data: { carModel: carmodel, carseries: carseries   },
-            success: function(result) {
-                location.reload();
-            }
-        });
-    }
-    function refMarkCarNo(id, carmodel) {
-        $.ajax({
-            url: "/cars/" + id + "/serviceNo",
-            type: "PUT",
-            data: { carModel: carmodel },
-            success: function(result) {
-                location.reload();
-            }
-        });
-    }
-    document.addEventListener("DOMContentLoaded", function() {
-        var marks = document.querySelectorAll(".mark");
-        marks.forEach(function(mark) {
-            if (mark.innerText === "yes") {
-                mark.classList.add("mark-yes");
-            } else if (mark.innerText === "no") {
-                mark.classList.add("mark-no");
-            }
-            else if (mark.innerText === "service") {
-                mark.classList.add("mark-service");
-            }else if(mark.innerText === "carinservice"){
-                mark.classList.add("mark-carinservice");
-            }
-        });
-    });
-
-//     ____________________________
-
-
-//     __________________________
-    document.addEventListener("DOMContentLoaded", function () {
-        const testdriveUsersButton = document.getElementById("testdriveUsers");
-        const tableMain = document.querySelector(".testDriveUsersTable");
-
-        const carTestDriveReserveTableButton = document.getElementById("carReserve");
-        const carTestDriveReserveTable = document.querySelector(".carTestDriveReserveTable");
-
-        const allCarButton = document.getElementById("allCar");
-        const allCarTable = document.querySelector(".allCarTable");
-
-        const carInsertButton = document.getElementById("carInsert");
-        const carInputFormTable = document.querySelector(".carInputForm");
-
-        const carDeleteButton = document.getElementById("carDelete");
-        const carDeleteFormTable = document.querySelector(".carDeleteForm");
-
-        const carSliderButton = document.getElementById("allSliderCar");
-        const carSliderFormTable = document.querySelector(".carSliderTableForm");
-
-        const wallpers = document.querySelector(".bmwServiceLogo");
-
-        tableMain.style.display="none";
-        carTestDriveReserveTable.style.display="none";
-        carInputFormTable.style.display="none";
-        carDeleteFormTable.style.display="none";
-        allCarTable.style.display="none";
-        carSliderFormTable.style.display="none";
-
-
-        let currentButton = null;
-
-        testdriveUsersButton.addEventListener("click", function () {
-            toggleUnderline(testdriveUsersButton);
-            tableMain.style.display = "flex";
-            carTestDriveReserveTable.style.display="none";
-            carDeleteFormTable.style.display="none";
-            carSliderFormTable.style.display="none";
-            allCarTable.style.display="none";
-            carInputFormTable.style.display="none";
-            wallpers.style.display="none";
-        });
-
-        carTestDriveReserveTableButton.addEventListener("click", function () {
-            toggleUnderline(carTestDriveReserveTableButton);
-            wallpers.style.display="none";
-            tableMain.style.display = "none";
-            carInputFormTable.style.display="none";
-            carSliderFormTable.style.display="none";
-            carDeleteFormTable.style.display="none";
-            allCarTable.style.display="none";
-            carTestDriveReserveTable.style.display="flex";
-        });
-
-        carInsertButton.addEventListener("click", function (){
-            wallpers.style.display="none";
-            toggleUnderline(carInsertButton);
-            tableMain.style.display = "none";
-            carTestDriveReserveTable.style.display="none";
-            carSliderFormTable.style.display="none";
-            carDeleteFormTable.style.display="none";
-            allCarTable.style.display="none";
-            carInputFormTable.style.display="flex";
-        });
-
-        carDeleteButton.addEventListener("click", function(){
-            wallpers.style.display="none";
-           toggleUnderline(carDeleteButton);
-            tableMain.style.display = "none";
-            carTestDriveReserveTable.style.display="none";
-            carSliderFormTable.style.display="none";
-            carInputFormTable.style.display="none";
-            allCarTable.style.display="none";
-            carDeleteFormTable.style.display="flex";
-        });
-
-        allCarButton.addEventListener("click", function (){
-            wallpers.style.display="none";
-            toggleUnderline(allCarButton);
-            tableMain.style.display = "none";
-            carTestDriveReserveTable.style.display="none";
-            carInputFormTable.style.display="none";
-            carDeleteFormTable.style.display="none";
-            carSliderFormTable.style.display="none";
-            allCarTable.style.display="flex";
-
-        });
-
-        carSliderButton.addEventListener("click", function (){
-            wallpers.style.display="none";
-            toggleUnderline(carSliderButton);
-            tableMain.style.display = "none";
-            carTestDriveReserveTable.style.display="none";
-            carInputFormTable.style.display="none";
-            carDeleteFormTable.style.display="none";
-            allCarTable.style.display="none";
-            carSliderFormTable.style.display="flex";
-        })
-
-
-        function toggleUnderline(button) {
-            if (currentButton) {
-                currentButton.classList.remove("underline");
-            }
-
-            button.classList.add("underline");
-            currentButton = button;
-        }
-    });
-
-</script>
 
 </body>
 </html>
