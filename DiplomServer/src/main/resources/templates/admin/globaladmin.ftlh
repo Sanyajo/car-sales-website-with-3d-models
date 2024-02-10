@@ -14,9 +14,18 @@
         <div class="bodyCongButton">
             <button id="testdriveUsers">Тестдрайв заявки</button>
             <button id="carReserve">Занятость машин</button>
+            <hr>
+            <button id="allCar">Все машины</button>
             <button id="carInsert">Добавить машину</button>
-            <button id="Тестдрайв заявки">Тестдрайв заявки</button>
+            <button id="carDelete">Удалить машину</button>
+            <hr>
+            <button id="allSliderCar">Просм машины стр инфо</button>
         </div>
+
+        <div class="bmwServiceLogo">
+            <img src="/images/bmwService.jpeg">
+        </div>
+
         <div class="testDriveUsersTable">
 
             <div class="infotestDriveUsersTable">
@@ -82,13 +91,36 @@
             </table>
         </div>
 
+        <div class="allCarTable">
+            <table>
+                <tr>
+                    <th>Тип</th>
+                    <th>Серия</th>
+                    <th>Модель</th>
+                    <th>Тип двигателя</th>
+                </tr>
+                <#list listCar as car>
+                    <tr>
+                        <td>${car.getSeriestype()}</td>
+                        <td>${car.getSeries()}</td>
+                        <td>${car.getModel()}</td>
+                        <td>${car.getMotortype()}</td>
+                    </tr>
+                </#list>
+            </table>
+        </div>
+
         <div class="carInputForm">
             <div class="carInputFormB">
                 <form class="login-form" action="/addCarInputForm" enctype="multipart/form-data" method="post">
                     <input type="text" id="model" name="model" placeholder="Модель"/>
                     <input type="text" id="series" name="series" placeholder="Серия"/>
                     <input type="text" id="motortype" name="motortype" placeholder="Тип мотора"/>
-                    <input type="text" id="seriestype" name="seriestype" placeholder="Серия Тип"/>
+                    <select name="seriestype" id="seriestype">
+                        <option value="">Выберите серию тип</option>
+                        <option value="M">М</option>
+                        <option value="stock">stock</option>
+                    </select>
                     <input type="file" id="photo" name="photo" multiple accept="image/*,image/jpeg"/>
 
 
@@ -98,10 +130,57 @@
 
         </div>
 
+        <div class="carDeleteForm">
+            <div class="carDeleteFormB">
+
+                <form class="carDeleteForm" action="/carDeleteForm"  method="post">
+                    <select name="carSelection" id="carSelection">
+                        <option value="">Выберите машину</option>
+                        <#list listCar as car>
+                            <#if car.getSeriestype() == "stock">
+                                <option value="${car.getSeries()} ${car.getModel()}" id="car">${car.getSeries()} ${car.getModel()}</option>
+                            <#else>
+                                <option value="${car.getSeriestype() }${car.getSeries()} ${car.getModel()}" id="car">${car.getSeriestype() }${car.getSeries()} ${car.getModel()}</option>
+                            </#if>
+                        </#list>
+                    </select>
+
+                    <button type="sumbit" id="sumbitButton">Удалить</button>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="carSliderTableForm">
+            <div class="carSliderForm">
+                <form class="carSliderAllButton" action="/carSliderAllButton" method="post">
+                    <table>
+
+                    <tr>
+                        <#list carSliderTableNameList as carslidercolumnname>
+                            <th>${carslidercolumnname}</th>
+                        </#list>
+                    </tr>
+
+                        <#list listSlider as carSlider>
+                        <tr>
+                            <td>${carSlider.getModel()}</td>
+                            <td>${carSlider.getSeries()}</td>
+                            <td><a href="${carSlider.getImageSlider()}" target="_blank">${carSlider.getImageSlider()}</a></td>
+                            <td>${carSlider.getImageinfo()}</td>
+                            <td>${carSlider.getType()}</td>
+                            <td>${carSlider.getSeriestype()}</td>
+                        </tr>
+                        </#list>
+
+                    </table>
+                </form>
+            </div>
+        </div>
+
 
 
     </div>
-
 
 
 
@@ -189,12 +268,26 @@
         const carTestDriveReserveTableButton = document.getElementById("carReserve");
         const carTestDriveReserveTable = document.querySelector(".carTestDriveReserveTable");
 
+        const allCarButton = document.getElementById("allCar");
+        const allCarTable = document.querySelector(".allCarTable");
+
         const carInsertButton = document.getElementById("carInsert");
         const carInputFormTable = document.querySelector(".carInputForm");
+
+        const carDeleteButton = document.getElementById("carDelete");
+        const carDeleteFormTable = document.querySelector(".carDeleteForm");
+
+        const carSliderButton = document.getElementById("allSliderCar");
+        const carSliderFormTable = document.querySelector(".carSliderTableForm");
+
+        const wallpers = document.querySelector(".bmwServiceLogo");
 
         tableMain.style.display="none";
         carTestDriveReserveTable.style.display="none";
         carInputFormTable.style.display="none";
+        carDeleteFormTable.style.display="none";
+        allCarTable.style.display="none";
+        carSliderFormTable.style.display="none";
 
 
         let currentButton = null;
@@ -203,22 +296,68 @@
             toggleUnderline(testdriveUsersButton);
             tableMain.style.display = "flex";
             carTestDriveReserveTable.style.display="none";
+            carDeleteFormTable.style.display="none";
+            carSliderFormTable.style.display="none";
+            allCarTable.style.display="none";
             carInputFormTable.style.display="none";
+            wallpers.style.display="none";
         });
 
         carTestDriveReserveTableButton.addEventListener("click", function () {
             toggleUnderline(carTestDriveReserveTableButton);
+            wallpers.style.display="none";
             tableMain.style.display = "none";
             carInputFormTable.style.display="none";
+            carSliderFormTable.style.display="none";
+            carDeleteFormTable.style.display="none";
+            allCarTable.style.display="none";
             carTestDriveReserveTable.style.display="flex";
         });
 
         carInsertButton.addEventListener("click", function (){
+            wallpers.style.display="none";
             toggleUnderline(carInsertButton);
             tableMain.style.display = "none";
             carTestDriveReserveTable.style.display="none";
+            carSliderFormTable.style.display="none";
+            carDeleteFormTable.style.display="none";
+            allCarTable.style.display="none";
             carInputFormTable.style.display="flex";
         });
+
+        carDeleteButton.addEventListener("click", function(){
+            wallpers.style.display="none";
+           toggleUnderline(carDeleteButton);
+            tableMain.style.display = "none";
+            carTestDriveReserveTable.style.display="none";
+            carSliderFormTable.style.display="none";
+            carInputFormTable.style.display="none";
+            allCarTable.style.display="none";
+            carDeleteFormTable.style.display="flex";
+        });
+
+        allCarButton.addEventListener("click", function (){
+            wallpers.style.display="none";
+            toggleUnderline(allCarButton);
+            tableMain.style.display = "none";
+            carTestDriveReserveTable.style.display="none";
+            carInputFormTable.style.display="none";
+            carDeleteFormTable.style.display="none";
+            carSliderFormTable.style.display="none";
+            allCarTable.style.display="flex";
+
+        });
+
+        carSliderButton.addEventListener("click", function (){
+            wallpers.style.display="none";
+            toggleUnderline(carSliderButton);
+            tableMain.style.display = "none";
+            carTestDriveReserveTable.style.display="none";
+            carInputFormTable.style.display="none";
+            carDeleteFormTable.style.display="none";
+            allCarTable.style.display="none";
+            carSliderFormTable.style.display="flex";
+        })
 
 
         function toggleUnderline(button) {

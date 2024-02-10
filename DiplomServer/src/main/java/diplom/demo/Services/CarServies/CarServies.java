@@ -14,7 +14,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.ResultSetMetaData;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -56,5 +59,14 @@ public class CarServies {
 
         return "Car added successfully";
     }
+
+    public String deleteCar(String carSelection){
+        String[] array = carSelection.split(" ");
+        String model = array[1];
+        String sql = "DELETE FROM car WHERE model= ?";
+        jdbcTemplate.update(sql, model);
+        return "record car delete !";
+    }
+
 
 }
