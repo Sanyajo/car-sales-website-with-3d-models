@@ -48,8 +48,6 @@ public class AdminController {
 
 
         if (users.getUserLogin().equals(login) && BCrypt.checkpw(password, users.getUserPassword())) {
-//            modelAtr.addAttribute("listCar", carServies.listCar());
-//            modelAtr.addAttribute("listHuman", testDriveHumanServies.allHuman());
             return "redirect:/globaladmin";
         }
         return "redirect:/admin";
@@ -70,9 +68,33 @@ public class AdminController {
         return "redirect:/globaladmin";
     }
 
+
+    @PostMapping("/addcarsliderform")
+    public String addCarSliderForm( @RequestParam("model") String model,
+                                   @RequestParam("series") String series,
+                                    @RequestParam MultipartFile image,
+                                   @RequestParam("type") String type,
+                                   @RequestParam("foldername") String folderName,
+                                   @RequestParam("imageinfo") String imageinfo,
+                                   @RequestParam("seriestype") String seriestype
+                                  ) {
+        if (image.isEmpty() || seriestype.isEmpty() || type.isEmpty()) {
+//            return "Файл не был передан";
+        }else {
+            carSliderServies.addCarSlider(model, series, image, type, folderName,  imageinfo, seriestype);
+        }
+        return "redirect:/globaladmin";
+    }
+
     @PostMapping("/carDeleteForm")
     public String deleteCarDeleteForm(@RequestParam("carSelection") String carSelection){
         carServies.deleteCar(carSelection);
+        return "redirect:/globaladmin";
+    }
+
+    @PostMapping("/carsliderdelete")
+    public String carsliderdelete(@RequestParam("carid") Integer id){
+        carSliderServies.deleteCarWriter(id);
         return "redirect:/globaladmin";
     }
 
@@ -80,9 +102,11 @@ public class AdminController {
     public String globalAdmin(Model modelAtr) {
 
         Set<String> carSliderTableName = carSliderServies.getTableColumnNames();
-//        List<CarSlider> carSlidersList = carSliderServies.allCarSlider();
+
         modelAtr.addAttribute("carSliderTableNameList", carSliderTableName);
         modelAtr.addAttribute("listSlider", carSliderServies.allCarSlider());
+
+        modelAtr.addAttribute("listDirct", carSliderServies.listDirectories("DiplomServer/src/main/resources/static/images/carslider"));
 
         modelAtr.addAttribute("listCar", carServies.listCar());
         modelAtr.addAttribute("listHuman", testDriveHumanServies.allHuman());
