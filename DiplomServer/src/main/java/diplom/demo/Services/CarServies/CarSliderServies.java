@@ -71,7 +71,7 @@ public class CarSliderServies {
 
             Files.write(filePath, image.getBytes());
 
-            String urlImageStr = "/images/carslider/"+folderName + image.getOriginalFilename();
+            String urlImageStr = "/images/carslider/"+ folderName+ "/" + image.getOriginalFilename();
 
             jdbcTemplate.update(sql, model, series, urlImageStr, type, imageinfo, seriestype);
         } catch (IOException e) {
