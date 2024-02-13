@@ -18,7 +18,7 @@ public class TestDriveHuman {
     private int id;
 
     @Column(name="fullname")
-    private String FullName;
+    private String fullName;
 
     @Column(name="telephonenumber")
     private String telephoneNumber;
