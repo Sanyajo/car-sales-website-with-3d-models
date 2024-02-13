@@ -2,6 +2,7 @@ package diplom.demo.Controller;
 
 import diplom.demo.Services.CarServies.CarServies;
 import diplom.demo.Services.CarServies.CarSliderServies;
+import diplom.demo.Services.HumanServies.ShopUserServies;
 import diplom.demo.Services.HumanServies.TestDriveHumanServies;
 import diplom.demo.Services.HumanServies.UsersServies;
 import diplom.demo.models.HumanModels.Users;
@@ -21,6 +22,7 @@ public class AdminController {
     private final UsersServies usersServies;
     private final CarServies carServies;
     private final CarSliderServies carSliderServies;
+    private final ShopUserServies shopUserServies;
 
 
     @GetMapping("/admin")
@@ -95,6 +97,8 @@ public class AdminController {
 
         modelAtr.addAttribute("listCar", carServies.listCar());
         modelAtr.addAttribute("listHuman", testDriveHumanServies.allHuman());
+
+        modelAtr.addAttribute("shopUsersList", shopUserServies.allShopUser());
 
         return "admin/globaladmin";
     }

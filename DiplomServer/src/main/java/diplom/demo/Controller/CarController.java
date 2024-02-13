@@ -1,5 +1,6 @@
 package diplom.demo.Controller;
 
+import diplom.demo.Services.HumanServies.ShopUserServies;
 import diplom.demo.models.carModels.CarInfo;
 import diplom.demo.Services.CarServies.CarConfigServies;
 import diplom.demo.Services.CarServies.CarInfoServies;
@@ -30,6 +31,8 @@ public class CarController {
     private final CarConfigServies carConfigServies;
 
     private final TestDriveHumanServies testDriveHumanServies;
+
+    private final ShopUserServies shopUserServies;
 
     @GetMapping("/main")
     public String main(Model model) {
@@ -82,16 +85,8 @@ public class CarController {
             @RequestParam(value = "email", required = false) String email,
             Model model) {
 
-//        fetchAndInjectHeaderHTML(model);
-//        fetchAndInjectFooterHTML(model);
-
-                if(fio.isEmpty()  || phoneNumber.isEmpty()  || car.isEmpty()){
-
-        }else{
-//            System.out.println("Received data - FIO: " + fio + ", Phone Number: " + phoneNumber + ", Email: " + email);
-//                    carServies.setMark(car);
-            testDriveHumanServies.addHuman(fio, phoneNumber, car, email);
-
+        if(!fio.isEmpty()  && !phoneNumber.isEmpty()  && !car.isEmpty()){
+                    testDriveHumanServies.addHuman(fio, phoneNumber, car, email);
         }
 
         return "redirect:/gettestdriveinfo";
@@ -171,6 +166,37 @@ public class CarController {
 //        return "pdf";
 //    }
 //
+
+    @GetMapping("/shopuser")
+    public String shopuser(Model model){
+//        fetchAndInjectHeaderHTML(model);
+//        fetchAndInjectFooterHTML(model);
+        model.addAttribute("listCar", carServies.listCar());
+        return "mainRef/shopuser";
+    }
+
+
+    @PostMapping("/getshopuser")
+    public String getshopuser(
+            @RequestParam("fio") String fio,
+            @RequestParam("phoneNumber") String phoneNumber,
+            @RequestParam("carSelection") String car,
+            @RequestParam(value = "email", required = false) String email,
+            Model model) {
+
+        if(!fio.isEmpty()  && !phoneNumber.isEmpty()  && !car.isEmpty()){
+            shopUserServies.addUserShop(fio, phoneNumber, car, email);
+        }
+        return "redirect:/getshopuser";
+    }
+
+    @GetMapping("/getshopuser")
+    public String getshopuser(Model model) {
+
+        model.addAttribute("listCar", carServies.listCar());
+
+        return "mainRef/shopuser";
+    }
 
 
 
