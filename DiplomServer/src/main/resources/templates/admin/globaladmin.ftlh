@@ -17,6 +17,8 @@
             <button id="testdriveUsers">Тестдрайв заявки</button>
             <button id="carReserve">Занятость машин</button>
             <hr>
+            <button id="shopuser">Покупки заявки</button>
+            <hr>
             <button id="allCar">Все машины</button>
             <button id="carInsert">Добавить машину</button>
             <button id="carDelete">Удалить машину</button>
@@ -29,6 +31,7 @@
         <div class="bmwServiceLogo">
             <img src="/images/bmwService.jpeg">
         </div>
+
 
         <div class="testDriveUsersTable">
 
@@ -93,6 +96,31 @@
                     </tr>
                 </#list>
             </table>
+        </div>
+
+        <div class="shopUsersTable">
+            <div class="shopUsersTableB">
+                <table>
+                    <tr>
+                    <th>ФИО</th>
+                    <th>Номер телефона</th>
+                    <th>Почта</th>
+                    <th>Машина</th>
+                    <th>Отметка</th>
+                    </tr>
+
+                    <#list shopUsersList as user>
+                    <tr>
+                        <td>${user.getFullName()}</td>
+                        <td>${user.getPhoneNumber()}</td>
+                        <td>${user.getEmail()}</td>
+                        <td>${user.getCar()}</td>
+                        <td class="mark">${user.getCheckValue()}</td>
+                    </tr>
+                    </#list>
+
+                </table>
+            </div>
         </div>
 
         <div class="allCarTable">

@@ -98,6 +98,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const carSliderDeleteButton = document.getElementById("sliderDelete");
     const carSliderDeleteFormTable = document.querySelector(".carSliderDeleteForm");
 
+    const shopUserButton = document.getElementById("shopuser");
+    const shopUserFormTable = document.querySelector(".shopUsersTable");
+
     tableMain.style.display="none";
     carTestDriveReserveTable.style.display="none";
     carInputFormTable.style.display="none";
@@ -106,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     carSliderFormTable.style.display="none";
     carSliderInputFormTable.style.display="none";
     carSliderDeleteFormTable.style.display="none";
+    shopUserFormTable.style.display="none";
 
 
     let currentButton = null;
@@ -115,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tableMain.style.display = "flex";
         carTestDriveReserveTable.style.display="none";
         carDeleteFormTable.style.display="none";
+        shopUserFormTable.style.display="none";
         carSliderInputFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
         allCarTable.style.display="none";
@@ -128,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
         wallpers.style.display="none";
         tableMain.style.display = "none";
         carSliderDeleteFormTable.style.display="none";
+        shopUserFormTable.style.display="none";
         carInputFormTable.style.display="none";
         carSliderInputFormTable.style.display="none";
         carSliderFormTable.style.display="none";
@@ -140,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
         wallpers.style.display="none";
         toggleUnderline(carInsertButton);
         tableMain.style.display = "none";
+        shopUserFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
         carTestDriveReserveTable.style.display="none";
         carSliderInputFormTable.style.display="none";
@@ -154,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleUnderline(carDeleteButton);
         carSliderDeleteFormTable.style.display="none";
         tableMain.style.display = "none";
+        shopUserFormTable.style.display="none";
         carSliderInputFormTable.style.display="none";
         carTestDriveReserveTable.style.display="none";
         carSliderFormTable.style.display="none";
@@ -166,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
         wallpers.style.display="none";
         toggleUnderline(allCarButton);
         carSliderDeleteFormTable.style.display="none";
+        shopUserFormTable.style.display="none";
         tableMain.style.display = "none";
         carSliderFormTable.style.display="none";
         carTestDriveReserveTable.style.display="none";
@@ -180,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
         wallpers.style.display="none";
         toggleUnderline(carSliderButton);
         tableMain.style.display = "none";
+        shopUserFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
         carTestDriveReserveTable.style.display="none";
         carInputFormTable.style.display="none";
@@ -198,6 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
         carInputFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
         allCarTable.style.display="none";
+        shopUserFormTable.style.display="none";
         carSliderFormTable.style.display="none";
         carSliderInputFormTable.style.display="flex";
     });
@@ -213,6 +224,21 @@ document.addEventListener("DOMContentLoaded", function () {
         carSliderFormTable.style.display="none";
         carSliderInputFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="flex";
+        shopUserFormTable.style.display="none";
+    });
+
+    shopUserButton.addEventListener("click", function (){
+        wallpers.style.display="none";
+        toggleUnderline(shopUserButton);
+        tableMain.style.display = "none";
+        carTestDriveReserveTable.style.display="none";
+        carInputFormTable.style.display="none";
+        carDeleteFormTable.style.display="none";
+        allCarTable.style.display="none";
+        carSliderFormTable.style.display="none";
+        carSliderInputFormTable.style.display="none";
+        carSliderDeleteFormTable.style.display="none";
+        shopUserFormTable.style.display="flex";
     });
 
 
