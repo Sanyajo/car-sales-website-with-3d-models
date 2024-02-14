@@ -37,7 +37,6 @@ public class AdminController {
 
         Users users = usersServies.findUserForLogin(login);
 
-
         if (users.getUserLogin().equals(login) && BCrypt.checkpw(password, users.getUserPassword())) {
             return "redirect:/globaladmin";
         }

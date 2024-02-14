@@ -35,7 +35,7 @@ public class CarController {
     private final ShopUserServies shopUserServies;
 
     @GetMapping("/main")
-    public String main(Model model) {
+    public String mainPage(Model model) {
         fetchAndInjectHeaderHTML(model);
         fetchAndInjectFooterHTML(model);
         return "main";
@@ -64,8 +64,6 @@ public class CarController {
 
     @GetMapping("/testdrive")
     public String testdrive(Model model){
-//        fetchAndInjectHeaderHTML(model);
-//        fetchAndInjectFooterHTML(model);
         model.addAttribute("listCar", carServies.listCar());
         return "mainRef/testdrive";
     }
@@ -82,11 +80,10 @@ public class CarController {
             @RequestParam("fio") String fio,
             @RequestParam("phoneNumber") String phoneNumber,
             @RequestParam("carSelection") String car,
-            @RequestParam(value = "email", required = false) String email,
-            Model model) {
+            @RequestParam(value = "email", required = false) String email) {
 
         if(!fio.isEmpty()  && !phoneNumber.isEmpty()  && !car.isEmpty()){
-                    testDriveHumanServies.addHuman(fio, phoneNumber, car, email);
+            testDriveHumanServies.addHuman(fio, phoneNumber, car, email);
         }
 
         return "redirect:/gettestdriveinfo";
@@ -94,11 +91,7 @@ public class CarController {
 
     @GetMapping("/gettestdriveinfo")
     public String gettestdriveinfo(Model model) {
-
-//        fetchAndInjectHeaderHTML(model);
-//        fetchAndInjectFooterHTML(model);
         model.addAttribute("listCar", carServies.listCar());
-
         return "mainRef/testdrive";
     }
 
@@ -118,14 +111,6 @@ public class CarController {
         return "shopauto";
     }
 
-
-//    @PostMapping("/shopauto/{model}/{series}")
-//    public String handleCarModelSeries(@PathVariable String model, @PathVariable String series, Model modelAtr){
-//        modelAtr.addAttribute("listCarInfo", carInfoServies.listCarSeries(model, series));
-//        return "car/mseries";
-//    }
-
-
     @PostMapping("/shopauto/{seriestype}/{series}/{model}")
     public String functt(@PathVariable String model,@PathVariable String series, @PathVariable String seriestype, Model modelAtr){
         CarInfo carInfo = carInfoServies.listCarSeries(model, seriestype);
@@ -135,8 +120,6 @@ public class CarController {
         modelAtr.addAttribute("carSliderListBody", carSliderServies.listSliderImage(model, seriestype,"carbody"));
         modelAtr.addAttribute("carSliderListSalon", carSliderServies.listSliderImage(model, seriestype,"salon"));
 
-
-//        modelAtr.addAttribute("carConfig", carConfig);
         modelAtr.addAttribute("carConfigList",carConfigServies.listCarConfiog(model,seriestype,"body"));
 
         String motorType = carInfoServies.getMotorType(model, seriestype);
@@ -156,21 +139,11 @@ public class CarController {
     @PostMapping("/price")
     public void pdfdownload(@PathVariable String model, @PathVariable String series, Model modelAtr){
         String pdfUrl = carInfoServies.getCarPDFUrl(model, series);
-
         modelAtr.addAttribute("pdfurl", pdfUrl);
-//        return "pdf";
     }
-
-//    @GetMapping("/price")
-//    public String pdfdownload(){
-//        return "pdf";
-//    }
-//
 
     @GetMapping("/shopuser")
     public String shopuser(Model model){
-//        fetchAndInjectHeaderHTML(model);
-//        fetchAndInjectFooterHTML(model);
         model.addAttribute("listCar", carServies.listCar());
         return "mainRef/shopuser";
     }
@@ -181,8 +154,7 @@ public class CarController {
             @RequestParam("fio") String fio,
             @RequestParam("phoneNumber") String phoneNumber,
             @RequestParam("carSelection") String car,
-            @RequestParam(value = "email", required = false) String email,
-            Model model) {
+            @RequestParam(value = "email", required = false) String email) {
 
         if(!fio.isEmpty()  && !phoneNumber.isEmpty()  && !car.isEmpty()){
             shopUserServies.addUserShop(fio, phoneNumber, car, email);
@@ -192,9 +164,7 @@ public class CarController {
 
     @GetMapping("/getshopuser")
     public String getshopuser(Model model) {
-
         model.addAttribute("listCar", carServies.listCar());
-
         return "mainRef/shopuser";
     }
 

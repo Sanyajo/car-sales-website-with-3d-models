@@ -19,7 +19,4 @@ public class CarConfigServies {
         return carConfigRepository.findByModelAndSeriesAndTypeList(model, series, type);
     }
 
-//    public CarConfig carConfigF(String model, String series, String type){
-//        return carConfigRepository.findByModelAndSeriesAndType(model, series, type);
-//    }
 }

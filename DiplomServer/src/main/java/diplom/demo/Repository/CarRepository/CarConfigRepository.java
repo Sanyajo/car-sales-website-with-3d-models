@@ -11,6 +11,4 @@ public interface CarConfigRepository extends JpaRepository<CarConfig, Long> {
     @Query("SELECT c FROM CarConfig c WHERE c.model = :model AND c.series = :series AND c.type = :type")
     List<CarConfig> findByModelAndSeriesAndTypeList(String model, String series, String type);
 
-//    CarConfig findByModelAndSeriesAndType(String model, String series, String type);
-
 }

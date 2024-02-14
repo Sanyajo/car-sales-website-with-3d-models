@@ -1,7 +1,6 @@
 package diplom.demo.Services.CarServies;
 
 import diplom.demo.Repository.CarRepository.CarSliderRepository;
-import diplom.demo.models.carModels.Car;
 import diplom.demo.models.carModels.CarSlider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,9 +15,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

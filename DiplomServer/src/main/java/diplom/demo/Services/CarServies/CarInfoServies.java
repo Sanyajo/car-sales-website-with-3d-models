@@ -19,13 +19,6 @@ public class CarInfoServies {
 
     private final CarInfoRepository carInfoRepository;
 
-//    public List<CarInfo> listCarModel(String model, String series){
-//        if(model != null){
-//            carInfoRepository.findByModel(model);
-//        }
-//        return carInfoRepository.findAll();
-//    }
-
     public CarInfo listCarSeries(String model, String seriestype) {
         switch (seriestype) {
             case "M": {
@@ -44,7 +37,6 @@ public class CarInfoServies {
     public String getCarPDFUrl(String model, String series){
         String pdfURL = carInfoRepository.findByModelAndSeriestype(model, series).getPdfurl();
         return pdfURL;
-//       return carInfoRepository.findByModelAndSeries(model, series);
     }
 
     public String getMotorType(String model, String seriestype) {
@@ -54,11 +46,5 @@ public class CarInfoServies {
                 "WHERE c.model = ? AND ci.seriestype = ?";
         return jdbcTemplate.queryForObject(sql, String.class, model, seriestype);
     }
-
-
-//    public CarInfo funct(String model, String seriestype){
-//        return carInfoRepository.findCarUrlTitle(model, seriestype);
-//    }
-
 
 }
