@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -121,4 +122,12 @@ public class CarSliderServies {
         return stringList;
     }
 
+    public String deleteRep(String repName){
+       File file = new File("DiplomServer/src/main/resources/static/images/carslider/"+repName);
+       if(!file.delete()){
+           System.out.println("Директория НЕ удалена !");
+       }
+
+       return "Директория удалена";
+    }
 }

@@ -84,6 +84,12 @@ public class AdminController {
         return "redirect:/globaladmin";
     }
 
+    @PostMapping("/deleteRepFormTable")
+    public String deleteRepFormTable(@RequestParam("repName") String repName){
+        carSliderServies.deleteRep(repName);
+        return "redirect:/globaladmin";
+    }
+
     @GetMapping("/globaladmin")
     public String globalAdmin(Model modelAtr) {
 

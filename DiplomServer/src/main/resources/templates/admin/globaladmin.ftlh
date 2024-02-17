@@ -26,6 +26,7 @@
             <button id="allSliderCar">Просм машины стр инфо</button>
             <button id="sliderInput">Добавить инфо слайд</button>
             <button id="sliderDelete">Удалить инфо слайд</button>
+            <button id="deleteRep">Удалить папку</button>
         </div>
 
         <div class="bmwServiceLogo">
@@ -98,6 +99,7 @@
             </table>
         </div>
 
+
         <div class="shopUsersTable">
             <div class="shopUsersTableB">
                 <table>
@@ -107,6 +109,7 @@
                     <th>Почта</th>
                     <th>Машина</th>
                     <th>Отметка</th>
+                    <th>Действие</th>
                     </tr>
 
                     <#list shopUsersList as user>
@@ -122,6 +125,7 @@
                 </table>
             </div>
         </div>
+
 
         <div class="allCarTable">
             <table>
@@ -252,6 +256,13 @@
             <form class="login-form" action="/carsliderdelete" method="post">
                 <input type="text" id="carid" name="carid" placeholder="Введите id записи"/>
                 <button type="submit" id="submitButton" >Удалить</button>
+            </form>
+        </div>
+
+        <div class="deleteRepFormTable">
+            <form class="login-form" action="/deleteRepFormTable" method="post">
+            <input type="text" id="repName" name="repName" placeholder="Введите название директории"/>
+            <button type="submit" id="submitButton" >Удалить</button>
             </form>
         </div>
 

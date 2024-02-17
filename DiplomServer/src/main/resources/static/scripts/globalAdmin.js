@@ -101,6 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const shopUserButton = document.getElementById("shopuser");
     const shopUserFormTable = document.querySelector(".shopUsersTable");
 
+    const deleteRepBut = document.getElementById("deleteRep");
+    const deleteRepFormTable = document.querySelector(".deleteRepFormTable");
+
     tableMain.style.display="none";
     carTestDriveReserveTable.style.display="none";
     carInputFormTable.style.display="none";
@@ -110,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     carSliderInputFormTable.style.display="none";
     carSliderDeleteFormTable.style.display="none";
     shopUserFormTable.style.display="none";
+    deleteRepFormTable.style.display="none";
 
 
     let currentButton = null;
@@ -125,12 +129,14 @@ document.addEventListener("DOMContentLoaded", function () {
         allCarTable.style.display="none";
         carSliderFormTable.style.display="none";
         carInputFormTable.style.display="none";
+        deleteRepFormTable.style.display="none";
         wallpers.style.display="none";
     });
 
     carTestDriveReserveTableButton.addEventListener("click", function () {
         toggleUnderline(carTestDriveReserveTableButton);
         wallpers.style.display="none";
+        deleteRepFormTable.style.display="none";
         tableMain.style.display = "none";
         carSliderDeleteFormTable.style.display="none";
         shopUserFormTable.style.display="none";
@@ -145,6 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
     carInsertButton.addEventListener("click", function (){
         wallpers.style.display="none";
         toggleUnderline(carInsertButton);
+        deleteRepFormTable.style.display="none";
         tableMain.style.display = "none";
         shopUserFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
@@ -161,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleUnderline(carDeleteButton);
         carSliderDeleteFormTable.style.display="none";
         tableMain.style.display = "none";
+        deleteRepFormTable.style.display="none";
         shopUserFormTable.style.display="none";
         carSliderInputFormTable.style.display="none";
         carTestDriveReserveTable.style.display="none";
@@ -177,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
         shopUserFormTable.style.display="none";
         tableMain.style.display = "none";
         carSliderFormTable.style.display="none";
+        deleteRepFormTable.style.display="none";
         carTestDriveReserveTable.style.display="none";
         carInputFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
@@ -193,6 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
         carSliderDeleteFormTable.style.display="none";
         carTestDriveReserveTable.style.display="none";
         carInputFormTable.style.display="none";
+        deleteRepFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
         allCarTable.style.display="none";
         carSliderInputFormTable.style.display="none";
@@ -204,6 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleUnderline(carSliderInputButton);
         carSliderDeleteFormTable.style.display="none";
         tableMain.style.display = "none";
+        deleteRepFormTable.style.display="none";
         carTestDriveReserveTable.style.display="none";
         carInputFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
@@ -220,6 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
         carTestDriveReserveTable.style.display="none";
         carInputFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
+        deleteRepFormTable.style.display="none";
         allCarTable.style.display="none";
         carSliderFormTable.style.display="none";
         carSliderInputFormTable.style.display="none";
@@ -236,9 +248,25 @@ document.addEventListener("DOMContentLoaded", function () {
         carDeleteFormTable.style.display="none";
         allCarTable.style.display="none";
         carSliderFormTable.style.display="none";
+        deleteRepFormTable.style.display="none";
         carSliderInputFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
         shopUserFormTable.style.display="flex";
+    });
+
+    deleteRepBut.addEventListener("click", function (){
+        wallpers.style.display="none";
+        toggleUnderline(deleteRepBut);
+        tableMain.style.display = "none";
+        carTestDriveReserveTable.style.display="none";
+        carInputFormTable.style.display="none";
+        carDeleteFormTable.style.display="none";
+        allCarTable.style.display="none";
+        carSliderFormTable.style.display="none";
+        deleteRepFormTable.style.display="flex";
+        carSliderInputFormTable.style.display="none";
+        carSliderDeleteFormTable.style.display="none";
+        shopUserFormTable.style.display="none";
     });
 
 

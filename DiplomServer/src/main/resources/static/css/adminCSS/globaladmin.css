@@ -192,7 +192,7 @@ td{
 }
 
 /*__________Удаление машины/Удаление слайдер________________*/
-.carDeleteForm, .carSliderDeleteForm{
+.carDeleteForm, .carSliderDeleteForm, .deleteRepFormTable{
     width: 100%;
     /*margin: 0px 30px 0px 0px;*/
     display: flex;
