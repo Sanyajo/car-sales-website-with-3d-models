@@ -19,8 +19,8 @@ body {
 hr {
     margin: 10px;
     border: none; /* Убираем границу */
-    background-color: #767A80; /* Цвет линии */
-    color: #767A80; /* Цвет линии для IE6-7 */
+    background-color: #1c04ba; /* Цвет линии */
+    color: #1c04ba; /* Цвет линии для IE6-7 */
     height: 2px; /* Толщина линии */
 }
 
@@ -62,6 +62,7 @@ hr {
     /*align-items: center;*/
     flex-direction: column;
     justify-content: center;
+    background: #262626;
 }
 
 .bodyCongButton button {
@@ -75,6 +76,7 @@ hr {
     color: #fff;
     border: 2px solid rgba(255, 255, 255, 0); /* Fully transparent border */
     cursor: pointer;
+    background: #262626;
 }
 
 .bodyCongButton button.underline,
