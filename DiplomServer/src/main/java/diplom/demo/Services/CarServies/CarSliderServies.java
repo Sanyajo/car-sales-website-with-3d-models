@@ -82,12 +82,7 @@ public class CarSliderServies {
     public boolean deleteCarWriter(Integer id){
         String sql = "DELETE FROM slidertable WHERE id=?";
         try{
-            int check = jdbcTemplate.update(sql, id);
-            if(check > 0){
-                return true;
-            }else{
-                return false;
-            }
+            return (jdbcTemplate.update(sql, id) > 0);
         }catch (DataAccessException e){
             log.error("Не удалилась запись с иаким id", id, e);
             return false;
@@ -124,10 +119,11 @@ public class CarSliderServies {
 
     public boolean deleteRep(String repName){
        File file = new File("DiplomServer/src/main/resources/static/images/carslider/"+repName);
-       if(!file.delete()){
+       try{
+          return file.delete();
+       }catch (SecurityException ex){
+           System.err.println("Не удалось удалить файл: " + ex.getMessage());
            return false;
        }
-
-       return true;
     }
 }
