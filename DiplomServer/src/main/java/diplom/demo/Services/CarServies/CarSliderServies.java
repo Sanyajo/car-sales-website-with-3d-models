@@ -122,12 +122,12 @@ public class CarSliderServies {
         return stringList;
     }
 
-    public String deleteRep(String repName){
+    public boolean deleteRep(String repName){
        File file = new File("DiplomServer/src/main/resources/static/images/carslider/"+repName);
        if(!file.delete()){
-           System.out.println("Директория НЕ удалена !");
+           return false;
        }
 
-       return "Директория удалена";
+       return true;
     }
 }
