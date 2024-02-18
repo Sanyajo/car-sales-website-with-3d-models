@@ -9,4 +9,8 @@ public interface CarSliderRepository extends JpaRepository<CarSlider, Long> {
      List<CarSlider> findByModelAndSeriestypeAndType(String model, String seriestype, String type);
      List<CarSlider> findAll();
 
+     CarSlider findById(Integer id);
+
+     CarSlider findFirstById(Integer id);
+
 }

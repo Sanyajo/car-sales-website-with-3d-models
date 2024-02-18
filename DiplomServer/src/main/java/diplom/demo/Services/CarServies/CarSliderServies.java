@@ -126,4 +126,29 @@ public class CarSliderServies {
            return false;
        }
     }
+
+    public CarSlider editRecordId(Integer id){
+       return carSliderRepository.findById(id);
+    }
+
+    public CarSlider getFirstZagluhka(){
+        return carSliderRepository.findFirstById(1);
+    }
+
+    public boolean updateRecord(Integer id, String model, String series, String image, String imageinfo,
+                                String type, String seriestype){
+        String sql = "UPDATE slidertable SET model = ?, series = ?, image = ?, imageinfo = ?, type = ?, seriestype = ? WHERE id = ?";
+
+        try {
+            jdbcTemplate.update(sql, model, series, image, imageinfo, type, seriestype, id);
+            return true;
+        } catch (Exception e) {
+            System.err.println("Ошибка при обновлении записи в базе данных: " + e.getMessage());
+            return false;
+        }
+    }
+
+
+
+
 }

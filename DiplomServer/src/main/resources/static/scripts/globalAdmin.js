@@ -104,6 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteRepBut = document.getElementById("deleteRep");
     const deleteRepFormTable = document.querySelector(".deleteRepFormTable");
 
+    const editRecord = document.getElementById("editRecord");
+    const editRecordTable = document.querySelector(".editRecordFormTable");
+
+    const buf = document.querySelector(".editRecordFormTableNewB");
+
     tableMain.style.display="none";
     carTestDriveReserveTable.style.display="none";
     carInputFormTable.style.display="none";
@@ -114,20 +119,26 @@ document.addEventListener("DOMContentLoaded", function () {
     carSliderDeleteFormTable.style.display="none";
     shopUserFormTable.style.display="none";
     deleteRepFormTable.style.display="none";
+    editRecordTable.style.display="none";
+    buf.style.display="none";
+
 
 
     let currentButton = null;
 
     testdriveUsersButton.addEventListener("click", function () {
         toggleUnderline(testdriveUsersButton);
+        buf.style.display="none";
         tableMain.style.display = "flex";
         carTestDriveReserveTable.style.display="none";
         carDeleteFormTable.style.display="none";
+        // editRecordFormTableNew.style.display="none";
         shopUserFormTable.style.display="none";
         carSliderInputFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
         allCarTable.style.display="none";
         carSliderFormTable.style.display="none";
+        editRecordTable.style.display="none";
         carInputFormTable.style.display="none";
         deleteRepFormTable.style.display="none";
         wallpers.style.display="none";
@@ -135,9 +146,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     carTestDriveReserveTableButton.addEventListener("click", function () {
         toggleUnderline(carTestDriveReserveTableButton);
+        buf.style.display="none";
         wallpers.style.display="none";
+        // editRecordFormTableNew.style.display="none";
         deleteRepFormTable.style.display="none";
         tableMain.style.display = "none";
+        editRecordTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
         shopUserFormTable.style.display="none";
         carInputFormTable.style.display="none";
@@ -151,12 +165,15 @@ document.addEventListener("DOMContentLoaded", function () {
     carInsertButton.addEventListener("click", function (){
         wallpers.style.display="none";
         toggleUnderline(carInsertButton);
+        buf.style.display="none";
+        // editRecordFormTableNew.style.display="none";
         deleteRepFormTable.style.display="none";
         tableMain.style.display = "none";
         shopUserFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
         carTestDriveReserveTable.style.display="none";
         carSliderInputFormTable.style.display="none";
+        editRecordTable.style.display="none";
         carSliderFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
         allCarTable.style.display="none";
@@ -166,6 +183,8 @@ document.addEventListener("DOMContentLoaded", function () {
     carDeleteButton.addEventListener("click", function(){
         wallpers.style.display="none";
         toggleUnderline(carDeleteButton);
+        buf.style.display="none";
+        // editRecordFormTableNew.style.display="none";
         carSliderDeleteFormTable.style.display="none";
         tableMain.style.display = "none";
         deleteRepFormTable.style.display="none";
@@ -176,12 +195,15 @@ document.addEventListener("DOMContentLoaded", function () {
         carInputFormTable.style.display="none";
         allCarTable.style.display="none";
         carDeleteFormTable.style.display="flex";
+        editRecordTable.style.display="none";
     });
 
     allCarButton.addEventListener("click", function (){
         wallpers.style.display="none";
         toggleUnderline(allCarButton);
+        buf.style.display="none";
         carSliderDeleteFormTable.style.display="none";
+        // editRecordFormTableNew.style.display="none";
         shopUserFormTable.style.display="none";
         tableMain.style.display = "none";
         carSliderFormTable.style.display="none";
@@ -190,6 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
         carInputFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
         carSliderInputFormTable.style.display="none";
+        editRecordTable.style.display="none";
         allCarTable.style.display="flex";
 
     });
@@ -197,6 +220,8 @@ document.addEventListener("DOMContentLoaded", function () {
     carSliderButton.addEventListener("click", function (){
         wallpers.style.display="none";
         toggleUnderline(carSliderButton);
+        buf.style.display="none";
+        // editRecordFormTableNew.style.display="none";
         tableMain.style.display = "none";
         shopUserFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
@@ -206,19 +231,23 @@ document.addEventListener("DOMContentLoaded", function () {
         carDeleteFormTable.style.display="none";
         allCarTable.style.display="none";
         carSliderInputFormTable.style.display="none";
+        editRecordTable.style.display="none";
         carSliderFormTable.style.display="flex";
     });
 
     carSliderInputButton.addEventListener("click", function (){
         wallpers.style.display="none";
         toggleUnderline(carSliderInputButton);
+        buf.style.display="none";
         carSliderDeleteFormTable.style.display="none";
+        // editRecordFormTableNew.style.display="none";
         tableMain.style.display = "none";
         deleteRepFormTable.style.display="none";
         carTestDriveReserveTable.style.display="none";
         carInputFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
         allCarTable.style.display="none";
+        editRecordTable.style.display="none";
         shopUserFormTable.style.display="none";
         carSliderFormTable.style.display="none";
         carSliderInputFormTable.style.display="flex";
@@ -227,13 +256,16 @@ document.addEventListener("DOMContentLoaded", function () {
     carSliderDeleteButton.addEventListener("click", function (){
         wallpers.style.display="none";
         toggleUnderline(carSliderDeleteButton);
+        buf.style.display="none";
         tableMain.style.display = "none";
         carTestDriveReserveTable.style.display="none";
+        // editRecordFormTableNew.style.display="none";
         carInputFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
         deleteRepFormTable.style.display="none";
         allCarTable.style.display="none";
         carSliderFormTable.style.display="none";
+        editRecordTable.style.display="none";
         carSliderInputFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="flex";
         shopUserFormTable.style.display="none";
@@ -242,12 +274,15 @@ document.addEventListener("DOMContentLoaded", function () {
     shopUserButton.addEventListener("click", function (){
         wallpers.style.display="none";
         toggleUnderline(shopUserButton);
+        buf.style.display="none";
+        // editRecordFormTableNew.style.display="none";
         tableMain.style.display = "none";
         carTestDriveReserveTable.style.display="none";
         carInputFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
         allCarTable.style.display="none";
         carSliderFormTable.style.display="none";
+        editRecordTable.style.display="none";
         deleteRepFormTable.style.display="none";
         carSliderInputFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
@@ -257,17 +292,38 @@ document.addEventListener("DOMContentLoaded", function () {
     deleteRepBut.addEventListener("click", function (){
         wallpers.style.display="none";
         toggleUnderline(deleteRepBut);
+        buf.style.display="none";
+        // editRecordFormTableNew.style.display="none";
         tableMain.style.display = "none";
         carTestDriveReserveTable.style.display="none";
         carInputFormTable.style.display="none";
         carDeleteFormTable.style.display="none";
         allCarTable.style.display="none";
         carSliderFormTable.style.display="none";
+        editRecordTable.style.display="none";
         deleteRepFormTable.style.display="flex";
         carSliderInputFormTable.style.display="none";
         carSliderDeleteFormTable.style.display="none";
         shopUserFormTable.style.display="none";
     });
+
+    editRecord.addEventListener("click", function (){
+        wallpers.style.display="none";
+        toggleUnderline(editRecord);
+        tableMain.style.display = "none";
+        carTestDriveReserveTable.style.display="none";
+        carInputFormTable.style.display="none";
+        carDeleteFormTable.style.display="none";
+        allCarTable.style.display="none";
+        carSliderFormTable.style.display="none";
+        buf.style.display="flex";
+        editRecordTable.style.display="flex";
+        deleteRepFormTable.style.display="none";
+        carSliderInputFormTable.style.display="none";
+        carSliderDeleteFormTable.style.display="none";
+        shopUserFormTable.style.display="none";
+    });
+
 
 
     function toggleUnderline(button) {

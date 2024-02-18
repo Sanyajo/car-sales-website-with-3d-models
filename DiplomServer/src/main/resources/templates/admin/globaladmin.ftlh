@@ -25,6 +25,8 @@
             <button id="allSliderCar">Просм машины стр инфо</button>
             <button id="sliderInput">Добавить инфо слайд</button>
             <button id="sliderDelete">Удалить инфо слайд</button>
+            <button id="editRecord">Изменить запись</button>
+            <hr>
             <button id="deleteRep">Удалить папку</button>
         </div>
 
@@ -259,11 +261,80 @@
         </div>
 
         <div class="deleteRepFormTable">
+            <div class="dirTableForm">
+                <h>Директории</h>
+                <table>
+                    <tr>
+                        <#list listDirct as dir>
+                            <td>${dir}</td>
+                        </#list>
+                    </tr>
+                </table>
+            </div>
             <form class="login-form" action="/deleteRepFormTable" method="post">
             <input type="text" id="repName" name="repName" placeholder="Введите название директории"/>
             <button type="submit" id="submitButton" >Удалить</button>
             </form>
         </div>
+
+
+        <div class="editRecordFormTable">
+            <form class="login-form" action="/editRecordId" method="post">
+                <input type="text" id="id" name="id" placeholder="Введите id записи для изменения"/>
+                <button id="editRecordFormTableButtonFromTable" >Изменить</button>
+            </form>
+
+<#--            <div class="editRecordFormTableNewB">-->
+<#--                <#if listEdit??>-->
+<#--                    <form class="login-form" action="/updateRecord" enctype="multipart/form-data" method="post">-->
+<#--                        <input type="text" id="id" name="id" placeholder="${listEdit.getId()}" value="${listEdit.getModel()}" readonly>-->
+<#--                        <input type="text" id="model" name="model" placeholder="Модель" value="${listEdit.getModel()}">-->
+<#--                        <input type="text" id="series" name="series" placeholder="Серия" value="${listEdit.getSeries()}"/>-->
+<#--                        <input type="text" id="image" name="image" multiple accept="image/*,image/jpeg" value="${listEdit.getImageSlider()}"/>-->
+<#--                        <input type="text" id="imageinfo" name="imageinfo" placeholder="Инфо картинка" value="${listEdit.getImageinfo()}"/>-->
+
+<#--                        <select name="type" id="type">-->
+<#--                            <option value="${listEdit.getType()}">${listEdit.getType()}</option>-->
+<#--                            <option value="salon">Салон</option>-->
+<#--                            <option value="carbody">Интерьер</option>-->
+<#--                        </select>-->
+
+<#--                        <select name="seriestype" id="seriestype">-->
+<#--                            <option value="${listEdit.getSeriestype()}">${listEdit.getSeriestype()}</option>-->
+<#--                            <option value="M">М</option>-->
+<#--                            <option value="stock">stock</option>-->
+<#--                        </select>-->
+<#--                        <button type="submit" id="submitButton" >Изменить</button>-->
+<#--                    </form>-->
+<#--                </#if>-->
+<#--            </div>-->
+        </div>
+
+        <div class="editRecordFormTableNewB">
+            <#if listEdit??>
+                <form class="login-form" action="/updateRecord" enctype="multipart/form-data" method="post">
+                    <input type="text" id="id" name="id" placeholder="${listEdit.getId()}" value="${listEdit.getModel()}" readonly>
+                    <input type="text" id="model" name="model" placeholder="Модель" value="${listEdit.getModel()}">
+                    <input type="text" id="series" name="series" placeholder="Серия" value="${listEdit.getSeries()}"/>
+                    <input type="text" id="image" name="image" multiple accept="image/*,image/jpeg" value="${listEdit.getImageSlider()}"/>
+                    <input type="text" id="imageinfo" name="imageinfo" placeholder="Инфо картинка" value="${listEdit.getImageinfo()}"/>
+
+                    <select name="type" id="type">
+                        <option value="${listEdit.getType()}">${listEdit.getType()}</option>
+                        <option value="salon">Салон</option>
+                        <option value="carbody">Интерьер</option>
+                    </select>
+
+                    <select name="seriestype" id="seriestype">
+                        <option value="${listEdit.getSeriestype()}">${listEdit.getSeriestype()}</option>
+                        <option value="M">М</option>
+                        <option value="stock">stock</option>
+                    </select>
+                    <button type="submit" id="submitButton" >Изменить</button>
+                </form>
+            </#if>
+        </div>
+
 
     </div>
 
