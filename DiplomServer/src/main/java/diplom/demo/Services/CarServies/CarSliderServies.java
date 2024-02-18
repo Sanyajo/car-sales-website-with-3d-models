@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,6 +18,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.PreparedStatement;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -30,6 +33,10 @@ public class CarSliderServies {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    // Внедрите NamedParameterJdbcTemplate в ваш класс
+    @Autowired
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public List<CarSlider> listSliderImage(String model, String seriestype, String type){
         return carSliderRepository.findByModelAndSeriestypeAndType(model, seriestype, type);
@@ -136,11 +143,20 @@ public class CarSliderServies {
     }
 
     public boolean updateRecord(Integer id, String model, String series, String image, String imageinfo,
-                                String type, String seriestype){
-        String sql = "UPDATE slidertable SET model = ?, series = ?, image = ?, imageinfo = ?, type = ?, seriestype = ? WHERE id = ?";
+                                String type, String seriestype) {
+        String sql = "UPDATE slidertable SET model = :model, series = :series, image = :image, imageinfo = :imageinfo, type = :type, seriestype = :seriestype WHERE id = :id";
+
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        parameters.addValue("model", model);
+        parameters.addValue("series", series);
+        parameters.addValue("image", image);
+        parameters.addValue("imageinfo", imageinfo);
+        parameters.addValue("type", type);
+        parameters.addValue("seriestype", seriestype);
+        parameters.addValue("id", id);
 
         try {
-            jdbcTemplate.update(sql, model, series, image, imageinfo, type, seriestype, id);
+            namedParameterJdbcTemplate.update(sql, parameters);
             return true;
         } catch (Exception e) {
             System.err.println("Ошибка при обновлении записи в базе данных: " + e.getMessage());
