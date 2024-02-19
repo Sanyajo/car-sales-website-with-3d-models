@@ -125,6 +125,8 @@ public class CarController {
         String motorType = carInfoServies.getMotorType(model, seriestype);
         modelAtr.addAttribute("motorType", motorType);
 
+        modelAtr.addAttribute("car", carServies.getCar(model));
+
         fetchAndInjectHeaderHTML(modelAtr);
         fetchAndInjectFooterHTML(modelAtr);
 

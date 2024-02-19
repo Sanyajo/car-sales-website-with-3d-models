@@ -73,7 +73,7 @@
     </div>
 
     <div class="carHistory">
-      <p2>История BMW  ${carInfo.getSeriestype()}${carInfo.getSeries()}${carInfo.getModel()}</p2>
+      <p2>История BMW  ${carInfo.getSeriestype()}${carInfo.getSeries()} ${carInfo.getModel()}</p2>
       <p>${carInfo.getCarhistory()}</p>
     </div>
 
@@ -99,12 +99,12 @@
       </div>
 
     <div class="video">
-      <p>ОБЗОР BMW  ${carInfo.getSeriestype()}${carInfo.getSeries()}${carInfo.getModel()}</p>
+      <p>ОБЗОР BMW  ${carInfo.getSeriestype()}${carInfo.getSeries()} ${carInfo.getModel()}</p>
       <video src=${carInfo.getVideoreview()} controls></video>
     </div>
 
     <div class="carHistory">
-      <p2>ДИЗАЙН И ДИНАМИКА ДВИЖЕНИЯ BMW  ${carInfo.getSeriestype()}${carInfo.getSeries()}${carInfo.getModel()}</p2>
+      <p2>ДИЗАЙН И ДИНАМИКА ДВИЖЕНИЯ BMW  ${carInfo.getSeriestype()}${carInfo.getSeries()} ${carInfo.getModel()}</p2>
       <p>${carInfo.getCardesign()}</p>
     </div>
 
@@ -125,6 +125,18 @@
         </ul>
         <i id="right" class="fa-solid fa-angle-right"></i>
       </div>
+    </div>
+
+    <div class="konfigMain">
+        <div class="konfig">
+            <p2>СОБЕРИ СВОЙ BMW</p2>
+            <img src=${car.getUrlimage()} alt="img" draggable="false">
+            <form action="" method="post">
+                <button type="submit">
+                    <p1>Конфигуратор</p1>
+                </button>
+            </form>
+        </div>
     </div>
 
     <div class="priceBlock">

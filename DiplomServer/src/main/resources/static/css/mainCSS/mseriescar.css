@@ -363,4 +363,55 @@
     text-transform: uppercase;
     margin: 0px 0px 20px 0px;
 }
-/*__________*/
+
+
+/*____Конфиг______*/
+
+.konfigMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.konfig{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    margin:0px 0px 100px 0px;
+}
+
+.konfig img{
+    width: 900px;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.konfig p2{
+    color: #262626;
+    font-family: New;
+    font-size: 50px;
+    font-weight: bold;
+    /*text-transform: uppercase;*/
+    margin: 0 0 20px 0;
+}
+
+.konfig button {
+    width: 300px;
+    height: 55px;
+    background: #0268AA;
+    border: 1px solid #0268AA;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.konfig p1{
+    color: #fff;
+    font-family: Tonky;
+    font-weight: normal;
+    font-size: 24px;
+}

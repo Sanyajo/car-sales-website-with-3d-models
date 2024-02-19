@@ -62,5 +62,9 @@ public class CarServies {
         return "record car delete !";
     }
 
+    public Car getCar(String model){
+        return carRepository.findByModel(model);
+    }
+
 
 }

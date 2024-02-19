@@ -293,6 +293,7 @@
                         <input type="text" id="image" name="image" multiple accept="image/*,image/jpeg" value="${listEdit.getImageSlider()}"/>
                         <input type="text" id="imageinfo" name="imageinfo" placeholder="Инфо картинка" value="${listEdit.getImageinfo()}"/>
 
+
                         <select name="type" id="type">
                             <option value="${listEdit.getType()}">${listEdit.getType()}</option>
                             <option value="salon">Салон</option>
