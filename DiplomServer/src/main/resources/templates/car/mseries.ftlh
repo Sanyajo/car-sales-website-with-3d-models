@@ -142,9 +142,11 @@
     <div class="priceBlock">
       <img src="/images/priceImage.jpg" alt="">
       <div class="priceTitle">
-        <p1>ПРАЙС-ЛИСТ</p1>
-        <p2>Вы можете ознакомиться с доступными опциями и спецификациями автомобиля, скачав прайс-лист</p2>
-        <a href="/price" target="_blank">Скачать прайс-лист</a>
+          <form class="priceTitle" action="/${car.getSeries()}/${car.getModel()}/price" method="post">
+            <p1>ПРАЙС-ЛИСТ</p1>
+            <p2>Вы можете ознакомиться с доступными опциями и спецификациями автомобиля, скачав прайс-лист</p2>
+              <button type="submit" id="submitButton">Скачать прайс лист</button>
+          </form>
       </div>
     </div>
 

@@ -357,12 +357,14 @@
     margin: 0px 0px 10px 0px;
 }
 
-.priceTitle a{
+.priceTitle button{
+    font-size: 24px;
     width: 100%;
-    color: black;
-    font-family: Tonky;
-    font-size: 28px;
-    font-weight: bold;
+    height: 55px;
+    background: #0268AA;
+    border: 1px solid #0268AA;
+    cursor: pointer;
+    /*font-weight: bolder;*/
 }
 
 /*____Конфиг______*/
