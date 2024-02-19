@@ -1,5 +1,6 @@
 package diplom.demo.Controller;
 
+import com.itextpdf.text.DocumentException;
 import diplom.demo.Services.HumanServies.ShopUserServies;
 import diplom.demo.models.carModels.CarInfo;
 import diplom.demo.Services.CarServies.CarConfigServies;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 
 @Controller
@@ -138,10 +141,11 @@ public class CarController {
     }
 
 
-    @PostMapping("/price")
-    public void pdfdownload(@PathVariable String model, @PathVariable String series, Model modelAtr){
+    @PostMapping("/{series}/{model}/price")
+    public String pdfdownload(@PathVariable String model, @PathVariable String series, Model modelAtr, RedirectAttributes redirectAttributes) throws DocumentException, IOException, URISyntaxException {
         String pdfUrl = carInfoServies.getCarPDFUrl(model, series);
-        modelAtr.addAttribute("pdfurl", pdfUrl);
+        modelAtr.addAttribute("pdfUrl", pdfUrl);
+        return "mainRef/pdfViewPage";
     }
 
     @GetMapping("/shopuser")
