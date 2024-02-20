@@ -2,6 +2,7 @@ package diplom.demo.Controller;
 
 import com.itextpdf.text.DocumentException;
 import diplom.demo.Services.HumanServies.ShopUserServies;
+import diplom.demo.Services.PdfServies.PdfServies;
 import diplom.demo.models.carModels.CarInfo;
 import diplom.demo.Services.CarServies.CarConfigServies;
 import diplom.demo.Services.CarServies.CarInfoServies;
@@ -32,10 +33,9 @@ public class CarController {
     private final CarInfoServies carInfoServies;
     private final CarSliderServies carSliderServies;
     private final CarConfigServies carConfigServies;
-
     private final TestDriveHumanServies testDriveHumanServies;
-
     private final ShopUserServies shopUserServies;
+    private final PdfServies pdfServies;
 
     @GetMapping("/main")
     public String mainPage(Model model) {
@@ -143,7 +143,7 @@ public class CarController {
 
     @PostMapping("/{series}/{model}/price")
     public String pdfdownload(@PathVariable String model, @PathVariable String series, Model modelAtr, RedirectAttributes redirectAttributes) throws DocumentException, IOException, URISyntaxException {
-        String pdfUrl = carInfoServies.getCarPDFUrl(model, series);
+        String pdfUrl = pdfServies.getPdfUrl(model, series);
         modelAtr.addAttribute("pdfUrl", pdfUrl);
         return "mainRef/pdfViewPage";
     }
