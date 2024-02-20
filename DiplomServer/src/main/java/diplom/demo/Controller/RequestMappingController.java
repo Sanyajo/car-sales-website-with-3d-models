@@ -25,7 +25,7 @@ public class RequestMappingController {
     }
 
     @PutMapping("/{id}/serviceYes")
-    public void updateCarMarkYes(@PathVariable Long id, @RequestParam("carModel") String carModel, @RequestParam("carseries") String carseries) {
+    public void updateCarMarkYes(@RequestParam("carModel") String carModel) {
 
         Optional<Car> optionalCar = Optional.ofNullable(carRepository.findByModel(carModel));
 
@@ -58,7 +58,7 @@ public class RequestMappingController {
     }
 
     @PutMapping("{id}/serviceNo")
-    public void updateCarMarkNo(@PathVariable Long id, @RequestParam("carModel") String carModel) {
+    public void updateCarMarkNo(@RequestParam("carModel") String carModel) {
         Optional<Car> optionalCar = Optional.ofNullable(carRepository.findByModel(carModel));
         optionalCar.ifPresent(car -> {
             car.setMarkCar("no");

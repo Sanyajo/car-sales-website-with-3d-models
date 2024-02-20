@@ -1,7 +1,6 @@
 package diplom.demo.Services.CarServies;
 
 import diplom.demo.Repository.CarRepository.CarInfoRepository;
-import diplom.demo.Repository.CarRepository.CarRepository;
 import diplom.demo.models.carModels.CarInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +16,6 @@ public class CarInfoServies {
     private JdbcTemplate jdbcTemplate;
 
     private final CarInfoRepository carInfoRepository;
-    private final CarRepository carRepository;
 
     public CarInfo listCarSeries(String model, String seriestype) {
         switch (seriestype) {

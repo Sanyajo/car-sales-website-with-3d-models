@@ -6,7 +6,6 @@ import diplom.demo.Services.HumanServies.ShopUserServies;
 import diplom.demo.Services.HumanServies.TestDriveHumanServies;
 import diplom.demo.Services.HumanServies.UsersServies;
 import diplom.demo.models.HumanModels.Users;
-import diplom.demo.models.carModels.CarSlider;
 import lombok.RequiredArgsConstructor;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
@@ -14,9 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -86,7 +82,7 @@ public class AdminController {
     @PostMapping("/carsliderdelete")
     public String carsliderdelete(@RequestParam("carid") Integer id){
         carSliderServies.deleteCarWriter(id);
-        return "/globaladmin";
+        return "redirect:/globaladmin";
     }
 
     @PostMapping("/editRecordId")

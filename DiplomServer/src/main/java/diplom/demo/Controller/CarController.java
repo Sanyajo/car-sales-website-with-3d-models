@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -115,7 +114,7 @@ public class CarController {
     }
 
     @PostMapping("/shopauto/{seriestype}/{series}/{model}")
-    public String functt(@PathVariable String model,@PathVariable String series, @PathVariable String seriestype, Model modelAtr){
+    public String functt(@PathVariable String model, @PathVariable String seriestype, Model modelAtr){
         CarInfo carInfo = carInfoServies.listCarSeries(model, seriestype);
 
         modelAtr.addAttribute("carInfo", carInfo);
@@ -142,7 +141,7 @@ public class CarController {
 
 
     @PostMapping("/{series}/{model}/price")
-    public String pdfdownload(@PathVariable String model, @PathVariable String series, Model modelAtr, RedirectAttributes redirectAttributes) throws DocumentException, IOException, URISyntaxException {
+    public String pdfdownload(@PathVariable String model, @PathVariable String series, Model modelAtr) throws DocumentException, IOException, URISyntaxException {
         String pdfUrl = pdfServies.getPdfUrl(model, series);
         modelAtr.addAttribute("pdfUrl", pdfUrl);
         return "mainRef/pdfViewPage";

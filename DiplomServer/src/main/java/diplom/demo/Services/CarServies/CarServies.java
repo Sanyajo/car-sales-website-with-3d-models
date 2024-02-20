@@ -32,10 +32,6 @@ public class CarServies {
         return null;
     }
 
-    public void setMark(String carModel){
-       carRepository.findByModel(carModel).setMarkCar("yes");
-    }
-
     public String addCar(String model, String series, String motortype, String seriestype, MultipartFile photo){
         String sql = "INSERT INTO car (model, series, urlimage, motortype, seriestype, mark) VALUES (?, ?, ?, ?, ?, 'no')";
 
