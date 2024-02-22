@@ -63,12 +63,12 @@ public class CarSliderServies {
     }
 
     public String addCarSlider(String model, String  series, MultipartFile image, String type, String folderName, String imageinfo, String seriestype){
-        String sql = "INSERT INTO slidertable (model, series, image, type, imageinfo, seriestype) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO slidertable (model, series, image, type, imageinfo, seriestype) " +
+                "VALUES (:model, :series, :image, :type, :imageinfo, :seriestype)";
 
         try {
             String directoryPath = "DiplomServer/src/main/resources/static/images/carslider/" + folderName;
             createDirectoryIfNotExists(directoryPath);
-
 
             Path directory = Paths.get("DiplomServer/src/main/resources/static/images/carslider/" + folderName);
             Path filePath = directory.resolve(image.getOriginalFilename());
@@ -77,18 +77,47 @@ public class CarSliderServies {
 
             String urlImageStr = "/images/carslider/"+ folderName+ "/" + image.getOriginalFilename();
 
-            jdbcTemplate.update(sql, model, series, urlImageStr, type, imageinfo, seriestype);
+            MapSqlParameterSource parameters = new MapSqlParameterSource()
+                    .addValue("model", model)
+                    .addValue("series", series)
+                    .addValue("image", urlImageStr)
+                    .addValue("type", type)
+                    .addValue("imageinfo", imageinfo)
+                    .addValue("seriestype", seriestype);
+
+            namedParameterJdbcTemplate.update(sql, parameters);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return "Car added successfully";
+
     }
 
     public boolean deleteCarWriter(Integer id){
-        String sql = "DELETE FROM slidertable WHERE id=?";
+        String sql1 = "SELECT image FROM slidertable WHERE id=:id";
+        String sql2 = "DELETE FROM slidertable WHERE id=:id";
         try{
-            return (jdbcTemplate.update(sql, id) > 0);
+
+            MapSqlParameterSource parameters1 = new MapSqlParameterSource()
+                    .addValue("id", id);
+
+            String imageUrl = namedParameterJdbcTemplate.queryForObject(sql1, parameters1, String.class);
+
+            File file = new File("DiplomServer/src/main/resources/static"+ imageUrl);
+
+            if (file.delete()) {
+                System.out.println(file.getName() + " удален");
+
+                MapSqlParameterSource parameters2 = new MapSqlParameterSource()
+                        .addValue("id", id);
+                return (namedParameterJdbcTemplate.update(sql2, parameters2) > 0);
+
+            } else {
+                System.out.println(file.getName() + " не удален");
+                return false;
+            }
+
         }catch (DataAccessException e){
             log.error("Не удалилась запись с иаким id", id, e);
             return false;
