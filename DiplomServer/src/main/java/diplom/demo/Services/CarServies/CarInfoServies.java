@@ -38,6 +38,7 @@ public class CarInfoServies {
                 "JOIN carinfo ci ON c.model = ci.model AND c.seriestype = ci.seriestype " +
                 "WHERE c.model = ? AND ci.seriestype = ?";
         return jdbcTemplate.queryForObject(sql, String.class, model, seriestype);
+
     }
 
 }

@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,15 +19,22 @@ public class ShopUserServies {
     private final ShopUserRepository shopUserRepository;
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public List<ShopUser> allShopUser(){
         return shopUserRepository.findAll();
     }
 
-    public String addUserShop(String fio, String phoneNumber, String car, String email){
-        String sql = "INSERT INTO shopuser (fullname, phonenumber, email, car) VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update(sql, fio, phoneNumber, email, car);
-        return "Пользователь на покупку записан !";
+    public boolean addUserShop(String fullname, String phoneNumber, String car, String email){
+        String sqlAddUser = "INSERT INTO shopuser (fullname, phoneNumber, email, car) VALUES (:fullname, :phoneNumber, :email, :car)";
+
+        MapSqlParameterSource sqlParamAddUser = new MapSqlParameterSource();
+        sqlParamAddUser.addValue("fullname", fullname);
+        sqlParamAddUser.addValue("phoneNumber", phoneNumber);
+        sqlParamAddUser.addValue("email", email);
+        sqlParamAddUser.addValue("car", car);
+
+        return (namedParameterJdbcTemplate.update(sqlAddUser, sqlParamAddUser) > 0);
+
     }
 }

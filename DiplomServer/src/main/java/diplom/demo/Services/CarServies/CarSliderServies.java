@@ -33,7 +33,6 @@ public class CarSliderServies {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    // Внедрите NamedParameterJdbcTemplate в ваш класс
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
@@ -95,23 +94,23 @@ public class CarSliderServies {
     }
 
     public boolean deleteCarWriter(Integer id){
-        String sql1 = "SELECT image FROM slidertable WHERE id=:id";
-        String sql2 = "DELETE FROM slidertable WHERE id=:id";
+        String sqlGetUrlImage = "SELECT image FROM slidertable WHERE id=:id";
+        String sqlDelSlidCar = "DELETE FROM slidertable WHERE id=:id";
         try{
 
-            MapSqlParameterSource parameters1 = new MapSqlParameterSource()
-                    .addValue("id", id);
+            MapSqlParameterSource parabGetUrlImage = new MapSqlParameterSource();
+            parabGetUrlImage.addValue("id", id);
 
-            String imageUrl = namedParameterJdbcTemplate.queryForObject(sql1, parameters1, String.class);
+            String imageUrl = namedParameterJdbcTemplate.queryForObject(sqlGetUrlImage, parabGetUrlImage, String.class);
 
             File file = new File("DiplomServer/src/main/resources/static"+ imageUrl);
 
             if (file.delete()) {
                 System.out.println(file.getName() + " удален");
 
-                MapSqlParameterSource parameters2 = new MapSqlParameterSource()
-                        .addValue("id", id);
-                return (namedParameterJdbcTemplate.update(sql2, parameters2) > 0);
+                MapSqlParameterSource paramDelSlidCar = new MapSqlParameterSource();
+                paramDelSlidCar.addValue("id", id);
+                return (namedParameterJdbcTemplate.update(sqlDelSlidCar, paramDelSlidCar) > 0);
 
             } else {
                 System.out.println(file.getName() + " не удален");
