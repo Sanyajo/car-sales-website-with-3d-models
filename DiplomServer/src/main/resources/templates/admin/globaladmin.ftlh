@@ -286,8 +286,8 @@
 
             <div class="editRecordFormTableNewB">
                 <#if listEdit??>
-                    <form class="login-form" action="/updateRecord" enctype="multipart/form-data" method="post">
-                        <input type="text" id="id" name="id" placeholder="${listEdit.getId()}" value="${listEdit.getModel()}" readonly>
+                    <form class="login-form" action="/updateRecord" method="post">
+                        <input type="text" id="id" name="id" placeholder="${listEdit.getId()}" value="${listEdit.getId()}" readonly>
                         <input type="text" id="model" name="model" placeholder="Модель" value="${listEdit.getModel()}">
                         <input type="text" id="series" name="series" placeholder="Серия" value="${listEdit.getSeries()}"/>
                         <input type="text" id="image" name="image" multiple accept="image/*,image/jpeg" value="${listEdit.getImageSlider()}"/>
