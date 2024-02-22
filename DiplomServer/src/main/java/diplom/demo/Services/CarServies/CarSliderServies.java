@@ -143,6 +143,7 @@ public class CarSliderServies {
 
     public boolean updateRecord(Integer id, String model, String series, String image, String imageinfo,
                                 String type, String seriestype) {
+
         String sql = "UPDATE slidertable SET model = :model, series = :series, image = :image, imageinfo = :imageinfo, type = :type, seriestype = :seriestype WHERE id = :id";
 
         MapSqlParameterSource parameters = new MapSqlParameterSource();
@@ -155,12 +156,13 @@ public class CarSliderServies {
         parameters.addValue("id", id);
 
         try {
-            namedParameterJdbcTemplate.update(sql, parameters);
-            return true;
+             return (namedParameterJdbcTemplate.update(sql, parameters) > 0);
         } catch (Exception e) {
             System.err.println("Ошибка при обновлении записи в базе данных: " + e.getMessage());
             return false;
         }
+
+
     }
 
 
