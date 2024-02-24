@@ -64,7 +64,7 @@
             </div>
 
             <div class="harTextBlock">
-                <p1>${car.getPrice()}</p1>
+                <p1>${car.getPrice()} BYN</p1>
                 <p2>Стоимость от </p2>
             </div>
 
