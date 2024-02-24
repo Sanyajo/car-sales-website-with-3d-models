@@ -37,21 +37,21 @@ public class PdfServies {
     private final PdfRepository pdfRepository;
     private final CarRepository carRepository;
 
-    public String getPdfUrl(String model, String series) throws DocumentException, IOException, URISyntaxException {
+    public String getPdfUrl(String model) throws DocumentException, IOException, URISyntaxException {
 
         boolean check = true;
         if(pdfRepository.findByModel(model) != null){
-            getCarPDFUrl(model, series, check);
+            getCarPDFUrl(model, check);
         }else{
             check = false;
-            getCarPDFUrl(model, series, check);
+            getCarPDFUrl(model,check);
         }
 
         return pdfRepository.findByModel(model).getPdfUrl();
 
     }
 
-    public void getCarPDFUrl(String model, String series, Boolean check) throws IOException, DocumentException, URISyntaxException {
+    public void getCarPDFUrl(String model, Boolean check) throws IOException, DocumentException, URISyntaxException {
         String filePath = "DiplomServer/src/main/resources/static/pdf/CarPrice"+model+".pdf";
         File file = new File(filePath);
         file.createNewFile();
@@ -73,7 +73,7 @@ public class PdfServies {
         // Добавляем таблицу
         PdfPTable table = new PdfPTable(3);
         addTableHeader(table);
-        addCustomRows(table, model, series);
+        addCustomRows(table, model);
 
         document.add(table);
         document.close();
@@ -113,14 +113,14 @@ public class PdfServies {
 
     }
 
-    private void addCustomRows(PdfPTable table, String model, String series)
+    private void addCustomRows(PdfPTable table, String model)
             throws URISyntaxException, BadElementException, IOException {
 
         Car car = carRepository.findByModel(model);
 
         PdfPCell modelCell = new PdfPCell(new Phrase(car.getSeries().toString()));
         PdfPCell seriesCell = new PdfPCell(new Phrase(car.getModel().toString()));
-        PdfPCell priceCell = new PdfPCell(new Phrase("300"));
+        PdfPCell priceCell = new PdfPCell(new Phrase(car.getPrice().toString()));
 
         table.addCell(modelCell);
         table.addCell(seriesCell);
