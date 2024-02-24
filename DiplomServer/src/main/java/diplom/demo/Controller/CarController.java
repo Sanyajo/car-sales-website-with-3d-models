@@ -141,8 +141,8 @@ public class CarController {
 
 
     @PostMapping("/{series}/{model}/price")
-    public String pdfdownload(@PathVariable String model, @PathVariable String series, Model modelAtr) throws DocumentException, IOException, URISyntaxException {
-        String pdfUrl = pdfServies.getPdfUrl(model, series);
+    public String pdfdownload(@PathVariable String model, Model modelAtr) throws DocumentException, IOException, URISyntaxException {
+        String pdfUrl = pdfServies.getPdfUrl(model);
         modelAtr.addAttribute("pdfUrl", pdfUrl);
         return "mainRef/pdfViewPage";
     }

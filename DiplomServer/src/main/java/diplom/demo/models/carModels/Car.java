@@ -37,4 +37,7 @@ public class Car {
 
     @Column(name="mark")
     private String markCar;
+
+    @Column(name="price")
+    private String price;
 }

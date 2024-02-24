@@ -50,9 +50,10 @@ public class AdminController {
                                     @RequestParam("series") String series,
                                     @RequestParam("motortype") String motortype,
                                     @RequestParam("seriestype") String seriestype,
-                                    @RequestParam MultipartFile photo) {
+                                    @RequestParam MultipartFile photo,
+                                   @RequestParam("price") String price) {
         if (!photo.isEmpty() && !seriestype.isEmpty()) {
-            carServies.addCar(model, series, motortype, seriestype, photo);
+            carServies.addCar(model, series, motortype, seriestype, photo, price);
         }
         return "redirect:/globaladmin";
     }

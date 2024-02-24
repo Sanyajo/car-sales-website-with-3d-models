@@ -36,8 +36,8 @@ public class CarServies {
         return null;
     }
 
-    public boolean addCar(String model, String series, String motortype, String seriestype, MultipartFile photo){
-        String sqlAddCar = "INSERT INTO car (model, series, urlimage, motortype, seriestype, mark) VALUES (:model, :series, :urlimage, :motortype, :seriestype, 'no')";
+    public boolean addCar(String model, String series, String motortype, String seriestype, MultipartFile photo, String price){
+        String sqlAddCar = "INSERT INTO car (model, series, urlimage, motortype, seriestype, mark, price) VALUES (:model, :series, :urlimage, :motortype, :seriestype, 'no', :price)";
 
         try {
             Path directory = Paths.get("DiplomServer/src/main/resources/static/images/car");
@@ -52,6 +52,7 @@ public class CarServies {
             sqlParameterSource.addValue("urlimage", urlImageStr);
             sqlParameterSource.addValue("motortype", motortype);
             sqlParameterSource.addValue("seriestype", seriestype);
+            sqlParameterSource.addValue("price", price);
 
                 return (namedParameterJdbcTemplate.update(sqlAddCar, sqlParameterSource) > 0);
 
