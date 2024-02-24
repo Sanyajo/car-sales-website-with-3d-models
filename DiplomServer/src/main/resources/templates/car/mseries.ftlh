@@ -64,6 +64,11 @@
             <p2>Двигатель</p2>
           </div>
 
+            <div class="harTextBlock">
+                <p1>${car.getPrice()}</p1>
+                <p2>Стоимость от</p2>
+            </div>
+
         </div>
 
       </div>
