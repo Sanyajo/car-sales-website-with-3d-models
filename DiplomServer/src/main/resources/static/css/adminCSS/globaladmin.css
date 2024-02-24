@@ -237,6 +237,11 @@ td{
     justify-content: center;
 }
 
+.allCarTable a{
+    background: #0d4ebe;
+    padding: 5px;
+}
+
 /*_________Все слайдер_______*/
 .carSliderTableForm {
     width: 100%;

@@ -30,6 +30,27 @@ function deleteHuman(id, testdrivecar){
     });
 }
 
+function deleteShopUser(id){
+    $.ajax({
+        url: "/cars/" + id + "/deleteShopUser",
+        type: "PUT",
+        success: function(result) {
+            location.reload();
+        }
+    });
+}
+
+function checkShopUser(id){
+    $.ajax({
+        url: "/cars/" + id + "/checkShopUser",
+        type: "PUT",
+        success: function(result) {
+            location.reload();
+        }
+    });
+}
+
+
 // _______________Машины скрипты_____________
 function refMarkCarYes(id, carmodel, carseries) {
     $.ajax({

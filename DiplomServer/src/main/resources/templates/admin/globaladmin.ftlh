@@ -102,6 +102,12 @@
 
 
         <div class="shopUsersTable">
+            <div class="infotestDriveUsersTable">
+                <table>
+                    <td class="greenInfo">ЦВЕТ</td><td>Обработан</td>
+                    <td class="redInfo">ЦВЕТ</td><td>Не обработан</td>
+                </table>
+            </div>
             <div class="shopUsersTableB">
                 <table>
                     <tr>
@@ -120,6 +126,8 @@
                         <td>${user.getEmail()}</td>
                         <td>${user.getCar()}</td>
                         <td class="mark">${user.getCheckValue()}</td>
+                        <td><button onclick="checkShopUser(${user.getId()})">Обработан</button></td>
+                        <td><button onclick="deleteShopUser(${user.getId()})">Удалить ползователя</button></td>
                     </tr>
                     </#list>
 
@@ -134,14 +142,18 @@
                     <th>Тип</th>
                     <th>Серия</th>
                     <th>Модель</th>
+                    <th>Картинка</th>
                     <th>Тип двигателя</th>
+                    <th>Стоимость</th>
                 </tr>
                 <#list listCar as car>
                     <tr>
                         <td>${car.getSeriestype()}</td>
                         <td>${car.getSeries()}</td>
                         <td>${car.getModel()}</td>
+                        <td><a href="${car.getUrlimage()}" target="_blank">${car.getUrlimage()}</a></td>
                         <td>${car.getMotortype()}</td>
+                        <td>от ${car.getPrice()}</td>
                     </tr>
                 </#list>
             </table>
@@ -159,6 +171,7 @@
                         <option value="stock">stock</option>
                     </select>
                     <input type="file" id="photo" name="photo" multiple accept="image/*,image/jpeg"/>
+                    <input type="text" id="price" name="price" placeholder="Цена"/>
 
 
                     <button type="submit" id="submitButton" >Добавить</button>
