@@ -99,12 +99,14 @@
     font-family: Tonky;
     font-size: 28px;
     font-weight: bold;
+
 }
 
 .harTextBlock p2{
     color: #fff;
     font-family: Tonky;
     font-size: 20px;
+    margin:0px 0px 40px 0px;
 }
 
 /*______История машины_________*/
