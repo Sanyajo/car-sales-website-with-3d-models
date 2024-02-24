@@ -2,7 +2,9 @@ package diplom.demo.Controller;
 
 
 import diplom.demo.Repository.CarRepository.CarRepository;
+import diplom.demo.Repository.HumanRepository.ShopUserRepository;
 import diplom.demo.Repository.HumanRepository.TestDriveHumanRepository;
+import diplom.demo.models.HumanModels.ShopUser;
 import diplom.demo.models.HumanModels.TestDriveHuman;
 import diplom.demo.models.carModels.Car;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class RequestMappingController {
 
     @Autowired
     private TestDriveHumanRepository testDriveHumanRepository;
+
+    @Autowired
+    private ShopUserRepository shopUserRepository;
 
     public RequestMappingController(){
 
@@ -129,6 +134,28 @@ public class RequestMappingController {
             car.setMarkCar("no");
             carRepository.save(car);
         });
+    }
+
+    @PutMapping("/{id}/deleteShopUser")
+    public void deleteHuman(@PathVariable Long id){
+
+        Optional<ShopUser> shopUser = shopUserRepository.findById(id);
+        shopUser.ifPresent(user ->{
+            shopUserRepository.delete(user);
+        });
+
+    }
+
+    @PutMapping("/{id}/checkShopUser")
+    public void checkShopUser(@PathVariable Long id){
+
+        Optional<ShopUser> optionalShopUser = shopUserRepository.findById(id);
+
+        optionalShopUser.ifPresent(user ->{
+            user.setCheckValue("yes");
+            shopUserRepository.save(user);
+        });
+
     }
 
 
