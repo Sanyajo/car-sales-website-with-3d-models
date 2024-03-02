@@ -1,13 +1,10 @@
 package diplom.demo.Controller;
 
 import com.itextpdf.text.DocumentException;
+import diplom.demo.Services.CarServies.*;
 import diplom.demo.Services.HumanServies.ShopUserServies;
 import diplom.demo.Services.PdfServies.PdfServies;
 import diplom.demo.models.carModels.CarInfo;
-import diplom.demo.Services.CarServies.CarConfigServies;
-import diplom.demo.Services.CarServies.CarInfoServies;
-import diplom.demo.Services.CarServies.CarServies;
-import diplom.demo.Services.CarServies.CarSliderServies;
 import diplom.demo.Services.HumanServies.TestDriveHumanServies;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
@@ -35,6 +32,7 @@ public class CarController {
     private final TestDriveHumanServies testDriveHumanServies;
     private final ShopUserServies shopUserServies;
     private final PdfServies pdfServies;
+    private final ArCarServies arCarServies;
 
     @GetMapping("/main")
     public String mainPage(Model model) {
@@ -173,6 +171,18 @@ public class CarController {
         return "mainRef/shopuser";
     }
 
+
+    @GetMapping("/arcars")
+    public String arcar(Model model){
+        model.addAttribute("listAuto", arCarServies.getAllArCar());
+        return "mainRef/arcars";
+    }
+
+    @PostMapping("/arcar/{model}")
+    public String arcarModel(@PathVariable("model") String model, Model modelAtr){
+        modelAtr.addAttribute("car", arCarServies.getCar(model));
+        return "mainRef/arcarModel";
+    }
 
 
 
