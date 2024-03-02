@@ -11,14 +11,13 @@ html, body {
     height: 100%;
 }
 
-body{
-    background: linear-gradient(274deg, rgba(101,101,101,0.2455357142857143) 100%, rgba(0,0,0,0.7763480392156863) 100%);
-
+header .logo_heade_button{
+    background: url("../../images/bmw_logo_gray.png") center center/cover no-repeat;
 }
 
 .carBlock{
     width: 100%;
-    height: 500px;
+    height: 600px;
     display: flex;
     justify-content: space-around;
     /*align-items: ;*/
@@ -37,8 +36,8 @@ body{
 }
 
 img{
-    width: 223px;
-    height: 125px;
+    width: 350px;
+    height: 200px;
     object-fit: cover;
 }
 

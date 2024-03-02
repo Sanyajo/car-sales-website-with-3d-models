@@ -40,9 +40,6 @@
         /*background: linear-gradient(274deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.06206232492997199) 0%);*/
     }
 
-    .logo_heade_button{
-        /*background: url("/images/bmw_logo_gray.png") center center/cover no-repeat;*/
-    }
 
     .loglink a {
         /* text-transform: uppercase; */
