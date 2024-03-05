@@ -6,6 +6,7 @@ import diplom.demo.Services.HumanServies.ShopUserServies;
 import diplom.demo.Services.PdfServies.PdfServies;
 import diplom.demo.models.carModels.CarInfo;
 import diplom.demo.Services.HumanServies.TestDriveHumanServies;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ClassPathResource;
@@ -179,10 +180,11 @@ public class CarController {
     }
 
     @PostMapping("/arcar/{model}")
-    public String arcarModel(@PathVariable("model") String model, Model modelAtr){
+    public String arcarModel(@PathVariable("model") String model, Model modelAtr) {
         modelAtr.addAttribute("car", arCarServies.getCar(model));
         return "mainRef/arcarModel";
     }
+
 
 
 
