@@ -8,6 +8,7 @@
 html, body {
     display: block;
     height: 100%;
+    background-color: #161718;
 }
 
 header .logo_heade_button{
@@ -35,8 +36,9 @@ header .logo_heade_button{
     align-items: center;
     flex-direction: column;
     margin: 20px 30px 35px 30px;
-    border: 1px solid #767A80;
+    border: 1px solid #343638;
     padding: 10px 10px 10px 10px;
+    background-color: #343638;
 }
 
 img{
@@ -49,10 +51,10 @@ img{
 .info1 button {
     height: 60px;
     width: 500px;
-    background: white;
-    border: 2px solid black;
+    background: #343638;
+    border: 2px solid #D9D6D2;
     cursor: pointer;
-    color: #262626;
+    color: #D9D6D2;
     font-family: New;
     font-size: 20px;
 }
@@ -66,7 +68,7 @@ p span{
 }
 
 .info1 p1{
-    color: #262626;
+    color: #D9D6D2;
     font-family: New;
     font-size: 28px;
     font-weight: bold;

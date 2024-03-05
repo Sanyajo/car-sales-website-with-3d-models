@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Three.js GLTF Example</title>
     <link rel="stylesheet" href="/css/arCarModel.css">
+    <link rel="shortcut icon" href="/images/bmw_logo.png" type="image/png">
+    <title>${car.getModel()} AR</title>
 </head>
 <body>
 
@@ -35,10 +36,10 @@
 
         //Scene
         const scene = new THREE.Scene()
-        scene.background = new THREE.Color("#fff");
+        scene.background = new THREE.Color("#161718");
 
         //Camera
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 3000);
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 5000);
         camera.position.set(4, 1, 3)
 
         //render
@@ -46,22 +47,17 @@
         renderer.setSize(window.innerWidth, window.innerHeight)
         container.appendChild(renderer.domElement)
 
-        let plain;
-        {
-            plain = new THREE.Mesh(
-                new THREE.PlaneGeometry(3, 5),
-                new THREE.MeshBasicMaterial({color: "#FFFFFFFF"})
-            )
-            plain.receiveShadow = true;
-            plain.position.set(0, -1, 0)
-            plain.rotateX(-Math.PI / 2);
-            scene.add(plain)
-        }
 
         // Model
         {
             const loader = new THREE.GLTFLoader();
             loader.load('${car.getUrl3d()}', gltf => {
+                    gltf.scene.traverse(function (child) {
+                        if (child.isMesh) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                        }
+                    });
                     scene.add(gltf.scene);
                 },
                 function (error) {
@@ -69,45 +65,6 @@
                 }
             )
         }
-
-        {
-            const light = new THREE.DirectionalLight(0xffffff, 1)
-            light.position.set(-2, 0, 10)
-            light.lookAt(0, -1, 0)
-            scene.add(light)
-
-            // Helper
-            // const helper = new THREE.DirectionalLightHelper(light, 5)
-            // scene.add(helper)
-        }
-
-        {
-            const light = new THREE.DirectionalLight(0xffffff, 1)
-            light.position.set(-1, 0, 15)
-            light.lookAt(0, -2, 0)
-            scene.add(light)
-
-            // Helper
-            // const helper = new THREE.DirectionalLightHelper(light, 5)
-            // scene.add(helper)
-        }
-
-        {
-            const light = new THREE.DirectionalLight(0xffffff, 1)
-            light.position.set(2, 0, 5)
-            light.lookAt(0, 1, 0)
-            scene.add(light)
-
-
-
-            // Helper
-            // const helper = new THREE.DirectionalLightHelper(light, 5)
-            // scene.add(helper)
-        }
-
-        // Add Ambient Light
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Color and intensity
-        scene.add(ambientLight);
 
         //OrbitControls
         const controls = new THREE.OrbitControls(camera, renderer.domElement);

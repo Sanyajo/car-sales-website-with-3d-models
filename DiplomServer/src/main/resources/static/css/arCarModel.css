@@ -7,6 +7,7 @@
 
 body{
     overflow: hidden;
+    background-color: #161718;
 }
 
 /*___________qr_code_______________*/
@@ -31,7 +32,7 @@ body{
 .qrCont p{
     width: 210px;
     height: 100%;
-    color: #262626;
+    color: #D9D6D2;
     font-family: New;
     font-size: 20px;
 }
@@ -72,7 +73,7 @@ body{
 }
 
 .logoCont p1{
-    color: #262626;
+    color: #D9D6D2;
     font-family: Tonky;
     font-size: 4.375em;
     /*font-weight: bold;*/

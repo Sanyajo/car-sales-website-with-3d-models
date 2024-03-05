@@ -9,6 +9,7 @@
 html, body {
     display: block;
     height: 100%;
+    background-color: #1A1B1C;
 }
 
 header .logo_heade_button{
@@ -24,8 +25,9 @@ header .logo_heade_button{
 }
 
 .parent{
+    width: 1200px;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     /*grid-template-rows: auto;*/
 }
 
@@ -62,14 +64,14 @@ p span{
 }
 
 .info1 p1{
-    color: #262626;
+    color: #D9D6D2;
     font-family: New;
     font-size: 20px;
     font-weight: bold;
 }
 
 .info1 p{
-    color: #262626;
+    color: #D9D6D2;
     font-family: New;
     font-size: 14px;
     /*font-weight: bold;*/
@@ -94,7 +96,7 @@ p span{
     line-height: 38px;
     font-size: 24px;
     font-weight: 600;
-    color: black;
+    color: #D9D6D2;
     background-color: rgba(0, 0, 0, 0); /* Fully transparent background */
     border: 2px solid rgba(255, 255, 255, 0); /* Fully transparent border */
     cursor: pointer;

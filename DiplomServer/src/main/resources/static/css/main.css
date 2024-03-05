@@ -5,10 +5,14 @@
     color: #cccccc;
 }
 
+body{
+    background-color: #1A1B1C;
+}
 .videoHeader{
     width: 100%;
     height: 100%;
     position: relative;
+    border-color: #1A1B1C;
 }
 .videoHeader video {
     width: 100%;
@@ -38,7 +42,7 @@
 .videText button {
     width: 300px;
     height: 55px;
-    background: linear-gradient(274deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.10127801120448177) 0%) center center/cover no-repeat;
+    background: linear-gradient(274deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 0%) center center/cover no-repeat;
     border: 1px solid white;
     cursor: pointer;
     font-weight: bolder;
@@ -94,6 +98,7 @@
     align-items: center;
     flex-direction: column;
     margin: 40px 0 90px 0;
+    background-color: #1A1B1C;
 }
 
 .findCarInfo{
@@ -105,7 +110,7 @@
 }
 
 .findCarInfo p1{
-    color: #666;
+    color: #AEA8A2;
     font-family: Tonky;
     font-size: 25px;
     font-weight: bold;
@@ -113,7 +118,7 @@
 }
 
 .findCarInfo p2{
-    color: #262626;
+    color: #D9D6D2;
     font-family: New;
     font-size: 70px;
     font-weight: bold;
@@ -142,8 +147,8 @@
 .findCarButtonLogo button{
     height: 40px;
     width: 100%;
-    background-color: white;
-    border: 2px solid black;
+    background: linear-gradient(274deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.10127801120448177) 0%) center center/cover no-repeat;
+    border: 2px solid white;
     cursor: pointer;
     font-weight: bolder;
 }
@@ -151,12 +156,12 @@
 .findCarButtonLogo span{
     font-family: Roboto;
     font-weight: bolder;
-    color: black;
-    font-size: 18px;
+    color: white;
+    font-size: 20px;
 }
 
 .findCarButtonLogo button:hover {
-    border: 3px solid black;
+    border: 3px solid white;
 }
 
 
@@ -167,7 +172,7 @@
 }
 .findCarButtonLogo p{
     width: 100%;
-    color: black;
+    color: #D9D6D2;
     font-family: Tonky;
     font-size: 24px;
     margin: 0 0 10px 0;
@@ -183,6 +188,7 @@
    height: 100%;
    position: relative;
    margin: 0 0 60px 0;
+    background-color: #1A1B1C;
 }
 
 .blockInfoText{
@@ -249,6 +255,7 @@
     flex-direction: row;
     align-items: center;
     margin: 0 0 60px 0;
+    background-color: #1A1B1C;
 }
 
 .blockInfo2TextAndButton{
@@ -264,16 +271,14 @@
 .blockInfo2TextAndButton button{
     height: 55px;
     width: 100%;
-    background: white;
-    /* background: linear-gradient(274deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.10127801120448177) 0%) center center/cover no-repeat;
-    border: 2px solid black; */
-    border: 2px solid black;
+    background: linear-gradient(274deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 0%) center center/cover no-repeat;
+    border: 2px solid white;
     cursor: pointer;
     font-weight: bolder;
 }
 
 .blockInfo2TextAndButton button:hover{
-    border: 3px solid black;
+    border: 3px solid white;
 }
 
 .blockInfo2 img{
@@ -286,7 +291,7 @@
 .blockInfo2TextAndButton p{
     width: 100%;
     height: 200px;
-    color: black;
+    color: white;
     font-family: Tonky;
     font-size: 36px;
 }
@@ -294,6 +299,6 @@
 .blockInfo2TextAndButton span{
     font-family: Tonky;
     font-weight: bolder;
-    color: black;
+    color: white;
     font-size: 20px;
 }

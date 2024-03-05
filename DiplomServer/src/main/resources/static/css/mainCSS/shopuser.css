@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+
 }
 * {
     margin: 0;
@@ -31,7 +32,7 @@ body {
 .form {
     position: relative;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.24);
+    background: rgba(197, 197, 197, 0.24);
     max-width: 360px;
     width: 100%; /* Make the form full width */
     box-sizing: border-box;

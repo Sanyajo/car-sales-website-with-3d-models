@@ -42,7 +42,13 @@
         /* text-transform: uppercase; */
         text-decoration: none;
         font-size: 33px;
-        color:black;
+        color: #D9D6D2;
+    }
+    hr {
+        border: none; /* Убираем границу */
+        background-color: #767A80; /* Цвет линии */
+        color: #767A80; /* Цвет линии для IE6-7 */
+        height: 2px; /* Толщина линии */
     }
 
     .footer{
@@ -50,13 +56,6 @@
         bottom: 0;
         left: 0;
 
-    }
-
-    hr {
-        border: none; /* Убираем границу */
-        background-color: #767A80; /* Цвет линии */
-        color: #767A80; /* Цвет линии для IE6-7 */
-        height: 2px; /* Толщина линии */
     }
 
 </style>
