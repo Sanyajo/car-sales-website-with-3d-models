@@ -1,0 +1,11 @@
+Model Information:
+* title:	2019 BMW M8
+* source:	https://sketchfab.com/3d-models/2019-bmw-m8-121ccad1d7b547daba02a86ae461af22
+* author:	RBLXSupercars (https://sketchfab.com/RBLXSupercars)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "2019 BMW M8" (https://sketchfab.com/3d-models/2019-bmw-m8-121ccad1d7b547daba02a86ae461af22) by RBLXSupercars (https://sketchfab.com/RBLXSupercars) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
