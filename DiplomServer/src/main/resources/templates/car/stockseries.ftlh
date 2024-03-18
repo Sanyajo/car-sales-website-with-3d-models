@@ -131,19 +131,6 @@
         </div>
     </div>
 
-    <div class="konfigMain">
-        <div class="konfig">
-            <p2>СОБЕРИ СВОЙ BMW</p2>
-            <img src=${car.getUrlimage()} alt="img" draggable="false">
-            <form action="" method="post">
-                <button type="submit">
-                    <p1>Конфигуратор</p1>
-                </button>
-            </form>
-        </div>
-    </div>
-
-
     <div class="priceBlock">
         <img src="/images/priceImage.jpg" alt="">
         <div class="priceTitle">

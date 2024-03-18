@@ -33,7 +33,6 @@ public class CarController {
     private final TestDriveHumanServies testDriveHumanServies;
     private final ShopUserServies shopUserServies;
     private final PdfServies pdfServies;
-    private final ArCarServies arCarServies;
 
     @GetMapping("/main")
     public String mainPage(Model model) {
@@ -171,22 +170,6 @@ public class CarController {
         model.addAttribute("listCar", carServies.listCar());
         return "mainRef/shopuser";
     }
-
-
-    @GetMapping("/arcars")
-    public String arcar(Model model){
-        model.addAttribute("listAuto", arCarServies.getAllArCar());
-        return "mainRef/arcars";
-    }
-
-    @PostMapping("/arcar/{model}")
-    public String arcarModel(@PathVariable("model") String model, Model modelAtr) {
-        modelAtr.addAttribute("car", arCarServies.getCar(model));
-        return "mainRef/arcarModel";
-    }
-
-
-
 
     private void fetchAndInjectHeaderHTML(Model model) {
         try {
